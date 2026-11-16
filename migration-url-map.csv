@@ -1,0 +1,142 @@
+live_url,new_url,action,note,type
+/author/sandilyan/,/blog.html,301,single author archive,author
+/category/blog/,/blog.html,301,single category archive,category
+/,/,301,core,page
+/3d-animation/,/3d-visualization.html,301,sub-service folded into hub (candidate for own page),page
+/3d-architecture/,/3d-visualization.html,301,sub-service folded into hub (candidate for own page),page
+/3d-architecture1/,/3d-visualization.html,301,sub-service folded into hub (candidate for own page),page
+/3d-modeling/,/3d-visualization.html,301,sub-service folded into hub (candidate for own page),page
+/3d-models/,/3d-visualization.html,301,sub-service folded into hub (candidate for own page),page
+/3d-visualization-rendering/,/3d-visualization.html,301,duplicate,page
+/3d-visualization/,/3d-visualization.html,301,core,page
+/about-us/,/about-us.html,301,core,page
+/ad-agency/,/graphic-design.html,301,sub-service folded into hub (candidate for own page),page
+/ads-design/,/graphic-design.html,301,sub-service folded into hub (candidate for own page),page
+/augmented-reality/,/augmented-virtual-reality.html,301,duplicate,page
+/augmented-virtual-reality/,/augmented-virtual-reality.html,301,core,page
+/blog/,/blog.html,301,core,page
+/brand-identity-design/,/graphic-design.html,301,sub-service folded into hub (candidate for own page),page
+/brochure-flyer-design/,/graphic-design.html,301,sub-service folded into hub (candidate for own page),page
+/brochure-flyer-designing/,/graphic-design.html,301,sub-service folded into hub (candidate for own page),page
+/careers/,/about-us.html,301,no equivalent; confirm with client,page
+/contact-us/,/contact-us.html,301,core,page
+/digital-marketing-company/,/digital-marketing-company.html,301,core,page
+/digital-marketing/,/digital-marketing-company.html,301,duplicate,page
+/e-learning-animation/,/e-learning.html,301,sub-service folded into hub (candidate for own page),page
+/e-learning-html5/,/e-learning.html,301,sub-service folded into hub (candidate for own page),page
+/e-learning-video/,/e-learning.html,301,sub-service folded into hub (candidate for own page),page
+/e-learning/,/e-learning.html,301,core,page
+/ecommerce-website-development/,/web-development.html,301,sub-service folded into hub (candidate for own page),page
+/explainer-video/,/multimedia-services.html,301,sub-service folded into hub (candidate for own page),page
+/faq/,/contact-us.html,301,no equivalent; confirm with client,page
+/get-a-free-quote/,/contact-us.html,301,conversion page folded into contact,page
+/graphic-design/,/graphic-design.html,301,core,page
+/infographic-design/,/graphic-design.html,301,sub-service folded into hub (candidate for own page),page
+/learning-management-system-lms/,/e-learning.html,301,sub-service folded into hub (candidate for own page),page
+/logo-design/,/graphic-design.html,301,sub-service folded into hub (candidate for own page),page
+/logo-designing/,/graphic-design.html,301,sub-service folded into hub (candidate for own page),page
+/microlearning-development-services/,/e-learning.html,301,sub-service folded into hub (candidate for own page),page
+/mobile-app-development/,/web-development.html,301,sub-service folded into hub (candidate for own page),page
+/mobile-marketing/,/digital-marketing-company.html,301,sub-service folded into hub (candidate for own page),page
+/motion-graphics/,/multimedia-services.html,301,sub-service folded into hub (candidate for own page),page
+/multimedia-presentations/,/multimedia-services.html,301,sub-service,page
+/multimedia-services/,/multimedia-services.html,301,core,page
+/multimedia-vfx-services/,/multimedia-services.html,301,duplicate,page
+/pixerio-portfolio/,/pixerio-portfolio.html,301,core,page
+/privacy-policy/,/privacy-policy.html,301,core,page
+/request-online-meet/,/contact-us.html,301,conversion page folded into contact,page
+/sem-search-engine-marketing/,/digital-marketing-company.html,301,sub-service folded into hub (candidate for own page),page
+/sem/,/digital-marketing-company.html,301,sub-service folded into hub (candidate for own page),page
+/seo-company-in-bangalore/,/digital-marketing-company.html,301,sub-service folded into hub (candidate for own page),page
+/seo-company/,/digital-marketing-company.html,301,sub-service folded into hub (candidate for own page),page
+/services/,/index.html,301,hub dropped; nav dropdown replaces it,page
+/slide-anything-popup-preview/,,410,"plugin test page, index it never",page
+/social-media-marketing-services/,/digital-marketing-company.html,301,sub-service folded into hub (candidate for own page),page
+/stall-design/,/graphic-design.html,301,sub-service folded into hub (candidate for own page),page
+/stall-designing/,/graphic-design.html,301,sub-service folded into hub (candidate for own page),page
+/thankyou-page/,/thank-you.html,301,post-submit page,page
+/vehicle-branding/,/graphic-design.html,301,sub-service folded into hub (candidate for own page),page
+/video-production/,/multimedia-services.html,301,sub-service folded into hub (candidate for own page),page
+/virtual-tours/,/3d-visualization.html,301,sub-service folded into hub (candidate for own page),page
+/web-application-development/,/web-development.html,301,sub-service folded into hub (candidate for own page),page
+/web-design/,/web-development.html,301,sub-service,page
+/web-development-2/,/web-development.html,301,duplicate,page
+/web-development/,/web-development.html,301,core,page
+/whatsapp-marketing-whatsapp-sms-services-pixerio/,/digital-marketing-company.html,301,sub-service folded into hub (candidate for own page),page
+/who-we-are/,/about-us.html,301,"duplicate of about-us, merge and drop",page
+/wordpress-website-development/,/web-development.html,301,sub-service folded into hub (candidate for own page),page
+/portfolio/,/pixerio-portfolio.html,301,CPT archive,portfolio-archive
+/portfolio/brochure-aptigenz-2/,/pixerio-portfolio.html,301,duplicate upload of same project,portfolio-dup
+/portfolio/brochure-design-takt-2/,/pixerio-portfolio.html,301,duplicate upload of same project,portfolio-dup
+/portfolio/brochure-lamda-2/,/pixerio-portfolio.html,301,duplicate upload of same project,portfolio-dup
+/portfolio/glassdoor-design-tripath-2/,/pixerio-portfolio.html,301,duplicate upload of same project,portfolio-dup
+/portfolio/package-design-choco-tree-2/,/pixerio-portfolio.html,301,duplicate upload of same project,portfolio-dup
+/portfolio/wallpaper-design-tripath-2/,/pixerio-portfolio.html,301,duplicate upload of same project,portfolio-dup
+/portfolio/brochure-aoi/,/pixerio-portfolio.html,301,"individual work item, low value alone",portfolio-item
+/portfolio/brochure-aptigenz/,/pixerio-portfolio.html,301,"individual work item, low value alone",portfolio-item
+/portfolio/brochure-balaji-electro/,/pixerio-portfolio.html,301,"individual work item, low value alone",portfolio-item
+/portfolio/brochure-design-02-takt/,/pixerio-portfolio.html,301,"individual work item, low value alone",portfolio-item
+/portfolio/brochure-design-takt/,/pixerio-portfolio.html,301,"individual work item, low value alone",portfolio-item
+/portfolio/brochure-design-tripath/,/pixerio-portfolio.html,301,"individual work item, low value alone",portfolio-item
+/portfolio/brochure-easyrecognition/,/pixerio-portfolio.html,301,"individual work item, low value alone",portfolio-item
+/portfolio/brochure-fludyine/,/pixerio-portfolio.html,301,"individual work item, low value alone",portfolio-item
+/portfolio/brochure-sada/,/pixerio-portfolio.html,301,"individual work item, low value alone",portfolio-item
+/portfolio/calendar-designing-beml/,/pixerio-portfolio.html,301,"individual work item, low value alone",portfolio-item
+/portfolio/dairy-2-tripath-logistics/,/pixerio-portfolio.html,301,"individual work item, low value alone",portfolio-item
+/portfolio/dairy-design-tripath-logistics/,/pixerio-portfolio.html,301,"individual work item, low value alone",portfolio-item
+/portfolio/dairy-tripath-logistics/,/pixerio-portfolio.html,301,"individual work item, low value alone",portfolio-item
+/portfolio/flyer-co-canada/,/pixerio-portfolio.html,301,"individual work item, low value alone",portfolio-item
+/portfolio/flyer-maple/,/pixerio-portfolio.html,301,"individual work item, low value alone",portfolio-item
+/portfolio/glassdoor-design-tripath/,/pixerio-portfolio.html,301,"individual work item, low value alone",portfolio-item
+/portfolio/logo-design-collezioni/,/pixerio-portfolio.html,301,"individual work item, low value alone",portfolio-item
+/portfolio/logo-design-sm-square/,/pixerio-portfolio.html,301,"individual work item, low value alone",portfolio-item
+/portfolio/logo-design-spinning/,/pixerio-portfolio.html,301,"individual work item, low value alone",portfolio-item
+/portfolio/package-design-choco-tree/,/pixerio-portfolio.html,301,"individual work item, low value alone",portfolio-item
+/portfolio/stall-design-cme/,/pixerio-portfolio.html,301,"individual work item, low value alone",portfolio-item
+/portfolio/turaco-logo-design/,/pixerio-portfolio.html,301,"individual work item, low value alone",portfolio-item
+/portfolio/vehicle-branding-tripath/,/pixerio-portfolio.html,301,"individual work item, low value alone",portfolio-item
+/portfolio/vehicle-branding-truck/,/pixerio-portfolio.html,301,"individual work item, low value alone",portfolio-item
+/portfolio/wallpaper-design-tripath/,/pixerio-portfolio.html,301,"individual work item, low value alone",portfolio-item
+/portfolio/website-cornucopia/,/pixerio-portfolio.html,301,"individual work item, low value alone",portfolio-item
+/portfolio/yalgaar-brochure-design/,/pixerio-portfolio.html,301,"individual work item, low value alone",portfolio-item
+/portfolio/branding-snacs-constructions/,/pixerio-portfolio.html,301,KEEP as case-study page in phase 2,portfolio-keep
+/portfolio/brochure-hitachi/,/pixerio-portfolio.html,301,KEEP as case-study page in phase 2,portfolio-keep
+/portfolio/brochure-lamda/,/pixerio-portfolio.html,301,KEEP as case-study page in phase 2,portfolio-keep
+/portfolio/ecommerce-pinti/,/pixerio-portfolio.html,301,KEEP as case-study page in phase 2,portfolio-keep
+/portfolio/flyer-sada-money/,/pixerio-portfolio.html,301,KEEP as case-study page in phase 2,portfolio-keep
+/portfolio/logo-design-maple/,/pixerio-portfolio.html,301,KEEP as case-study page in phase 2,portfolio-keep
+/portfolio/package-design-iquant/,/pixerio-portfolio.html,301,KEEP as case-study page in phase 2,portfolio-keep
+/portfolio/social-media-creatives/,/pixerio-portfolio.html,301,KEEP as case-study page in phase 2,portfolio-keep
+/portfolio/stall-design-lamda-components/,/pixerio-portfolio.html,301,KEEP as case-study page in phase 2,portfolio-keep
+/portfolio/website-lakshmi-videos/,/pixerio-portfolio.html,301,KEEP as case-study page in phase 2,portfolio-keep
+/portfolio/website-nps-agara-school/,/pixerio-portfolio.html,301,KEEP as case-study page in phase 2,portfolio-keep
+/5-benefits-of-augmented-reality-in-the-manufacturing/,/5-benefits-of-augmented-reality-in-the-manufacturing/,KEEP-URL,rebuild in article.html template at same slug,post
+/5-best-reasons-to-use-explainer-video-for-your-business/,/5-best-reasons-to-use-explainer-video-for-your-business/,KEEP-URL,rebuild in article.html template at same slug,post
+/7-benefits-of-corporate-video-presentation/,/7-benefits-of-corporate-video-presentation/,KEEP-URL,rebuild in article.html template at same slug,post
+/how-graphic-design-plays-vital-role-in-business/,/how-graphic-design-plays-vital-role-in-business/,KEEP-URL,rebuild in article.html template at same slug,post
+/how-to-choose-a-web-development-company/,/how-to-choose-a-web-development-company/,KEEP-URL,rebuild in article.html template at same slug,post
+/how-to-design-a-website-the-complete-guide/,/how-to-design-a-website-the-complete-guide/,KEEP-URL,rebuild in article.html template at same slug,post
+/how-to-skyrocket-your-e-learning-courses-with-great-content/,/how-to-skyrocket-your-e-learning-courses-with-great-content/,KEEP-URL,rebuild in article.html template at same slug,post
+/how-ui-ux-differ-from-each-other/,/how-ui-ux-differ-from-each-other/,KEEP-URL,rebuild in article.html template at same slug,post
+/seven-steps-for-e-learning-content-development/,/seven-steps-for-e-learning-content-development/,KEEP-URL,rebuild in article.html template at same slug,post
+/the-5step-mantra-with-pixerio/,/the-5step-mantra-with-pixerio/,KEEP-URL,rebuild in article.html template at same slug,post
+/the-8-stages-of-website-development-how-to-build-a-website-that-will-attract-your-target-audience/,/the-8-stages-of-website-development-how-to-build-a-website-that-will-attract-your-target-audience/,KEEP-URL,rebuild in article.html template at same slug,post
+/website-development-process-how-to-monitor-and-optimize-your-web-project-from-start-to-finish/,/website-development-process-how-to-monitor-and-optimize-your-web-project-from-start-to-finish/,KEEP-URL,rebuild in article.html template at same slug,post
+/what-is-responsive-web-design/,/what-is-responsive-web-design/,KEEP-URL,rebuild in article.html template at same slug,post
+/service/audit-and-assurance/,,410,"theme demo CPT 'service', placeholder content",service
+/service/business-growth/,,410,"theme demo CPT 'service', placeholder content",service
+/service/finance-consulting/,,410,"theme demo CPT 'service', placeholder content",service
+/service/performance/,,410,"theme demo CPT 'service', placeholder content",service
+/service/strategic-planning/,,410,"theme demo CPT 'service', placeholder content",service
+/service/sustainability/,,410,"theme demo CPT 'service', placeholder content",service
+/service/,,410,CPT archive of placeholders,service-archive
+/team/lee-ju-jin/,/about-us.html,301,theme demo person (fake team member),team
+/team/mahfuz-riad/,/about-us.html,301,theme demo person (fake team member),team
+/team/rashed-k/,/about-us.html,301,theme demo person (fake team member),team
+/team/tonji-trakker/,/about-us.html,301,theme demo person (fake team member),team
+/team/,/about-us.html,301,CPT archive,team-archive
+/testimonial/ceo-cloud-service-provider/,/index.html,301,testimonial CPT; overlay quotes live on home,testimonial
+/testimonial/ceo-home-appliance-company/,/index.html,301,testimonial CPT; overlay quotes live on home,testimonial
+/testimonial/manager-product-development/,/index.html,301,testimonial CPT; overlay quotes live on home,testimonial
+/testimonial/marketing-manager-furniture-company/,/index.html,301,testimonial CPT; overlay quotes live on home,testimonial
+/testimonial/,/index.html,301,CPT archive,testimonial-archive
