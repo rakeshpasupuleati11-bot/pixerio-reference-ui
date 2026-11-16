@@ -187,7 +187,7 @@
     var tab = document.createElement('a');
     tab.className = 'quote-tab';
     tab.href = 'contact-us.html';
-    tab.innerHTML = '<span>Get a free quote</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    tab.innerHTML = '<span>Get a free quote</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
     document.body.appendChild(tab);
   }
 
