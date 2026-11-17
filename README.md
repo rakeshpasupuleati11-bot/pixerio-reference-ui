@@ -1,6 +1,6 @@
 # pixerio-reference-ui
 
-Static reference build of the Pixerio site — 20 HTML pages, one stylesheet, no build step.
+Static reference build of the Pixerio site — 18 HTML pages, one stylesheet, no build step.
 Edited in place; every commit is visible in the history below.
 
 ## Live preview
@@ -20,7 +20,7 @@ Then open http://127.0.0.1:5500/
 
     reference-ui/            the site
       index.html             home
-      20 section pages       about-us, blog, contact-us, case-study, ...
+      17 section pages       about-us, blog, contact-us, case-study, ...
       assets/css/px.css      all styling
       assets/js/hero-bg.js   generative hero background
       assets/js/motion.js    entrance, reveals, magnetic controls, parallax
