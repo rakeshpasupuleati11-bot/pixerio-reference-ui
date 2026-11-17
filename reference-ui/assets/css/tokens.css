@@ -1,0 +1,55 @@
+/* ==========================================================================
+   Pixerio — design tokens v1 (sitewide)
+   Loaded after px.css on every page, so the whole site shares one palette.
+   Hues and stops sampled from assets/img/pixerio-logo.png (1026x381):
+     #00B3BD teal · #0497C3 cyan · #39B34A green · #B8D550 lime
+     #F49C42 amber · #9ADAF2 pale blue
+   Contrast measured against #FFFFFF / #F5F9FA:
+     #00B3BD 2.57 / 2.42  -> fills, borders, graphics only (never body text)
+     #007A80 5.13 / 4.84  -> the AA-safe teal sibling used for text
+     #12324A 13.28/12.53  -> ink
+   ========================================================================== */
+:root{
+  /* brand hues — use for fills, rules, graphics, gradients */
+  --brand-teal:#00B3BD;
+  --brand-cyan:#0497C3;
+  --brand-green:#39B34A;
+  --brand-lime:#B8D550;
+  --brand-amber:#F49C42;
+  --brand-pale:#9ADAF2;
+
+  /* AA-safe siblings — use for text on light surfaces */
+  --brand-teal-text:#007A80;
+  --brand-cyan-text:#00688F;
+  --brand-green-text:#2E7D32;
+  --brand-amber-text:#A85B00;
+
+  /* remap the legacy tokens the site already consumes */
+  --cyan:var(--brand-teal);      /* never used for text in px.css */
+  --teal:var(--brand-teal-text); /* used for text 12x -> must stay AA */
+  --blue:var(--brand-cyan);
+
+  /* interaction */
+  --focus:0 0 0 3px rgba(0,179,189,.42);
+}
+
+/* visible keyboard focus everywhere, in brand teal */
+:where(a,button,input,select,textarea,[tabindex]):focus-visible{
+  outline:2px solid var(--brand-teal);outline-offset:3px;border-radius:2px}
+
+/* selection reads as brand, not browser blue */
+::selection{background:rgba(0,179,189,.22);color:inherit}
+
+/* the logo spectrum, as one reusable hairline */
+.spectrum-rule{
+  height:2px;border:0;border-radius:2px;
+  background:linear-gradient(90deg,
+    var(--brand-teal) 0%,var(--brand-cyan) 26%,var(--brand-green) 52%,
+    var(--brand-lime) 74%,var(--brand-amber) 100%)}
+
+/* links inherit brand interaction colour rather than the legacy blue */
+a{--link:var(--brand-teal-text)}
+
+@media (prefers-reduced-motion:reduce){
+  *{scroll-behavior:auto!important}
+}
