@@ -1,0 +1,63 @@
+/* ==========================================================================
+   Pixerio — home motion v6
+   Techniques taken from what motion-site galleries actually ship:
+     1. marquee-x          a looping service band
+     2. gradient-shift     the brand spectrum drifts behind it
+     3. shimmer            a slow sheen along the spectrum rules
+     4. parallax-fade-up   sections ride in with scroll, not just on load
+   All transform/opacity, all frozen by the site motion toggle,
+   all off under prefers-reduced-motion.
+   ========================================================================== */
+
+/* ---------- 1 + 2: the service band ---------- */
+.mq{position:relative;overflow:hidden;padding:16px 0;margin-top:clamp(30px,4vw,54px);
+  border-block:1px solid rgba(18,50,74,.12);
+  background:linear-gradient(90deg,rgba(0,179,189,.06),rgba(73,173,72,.06),rgba(184,213,80,.06),rgba(244,156,66,.06));
+  background-size:300% 100%;animation:gradient-shift 22s ease-in-out infinite alternate}
+@keyframes gradient-shift{from{background-position:0% 50%}to{background-position:100% 50%}}
+.mq::before,.mq::after{content:"";position:absolute;top:0;bottom:0;width:clamp(40px,8vw,130px);
+  z-index:2;pointer-events:none}
+.mq::before{left:0;background:linear-gradient(to right,#fff,transparent)}
+.mq::after{right:0;background:linear-gradient(to left,#fff,transparent)}
+.mq__track{display:flex;width:max-content;will-change:transform;
+  animation:marquee-x 46s linear infinite}
+.mq:hover .mq__track{animation-play-state:paused}
+.mq__group{display:flex;align-items:center}
+.mq__item{display:inline-flex;align-items:center;gap:clamp(16px,2.2vw,30px);
+  padding-right:clamp(16px,2.2vw,30px);white-space:nowrap;
+  font-family:var(--mono);font-size:clamp(.8rem,1vw,.95rem);letter-spacing:.14em;
+  text-transform:uppercase;color:var(--navy,#12324A);text-decoration:none}
+.mq__item::after{content:"";width:6px;height:6px;border-radius:50%;
+  background:var(--brand-teal);opacity:.8}
+.mq__item:hover{color:var(--brand-teal-text)}
+@keyframes marquee-x{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+
+/* ---------- 3: shimmer on the spectrum rules ---------- */
+.spectrum-rule,.page-head .wrap::after,.hx__rail::before{position:relative;overflow:hidden}
+.spectrum-rule::after,.page-head .wrap::after::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(100deg,transparent 20%,rgba(255,255,255,.85) 50%,transparent 80%);
+  transform:translateX(-120%);animation:shimmer 6.5s ease-in-out infinite}
+@keyframes shimmer{0%{transform:translateX(-120%)}55%{transform:translateX(120%)}100%{transform:translateX(120%)}}
+
+/* ---------- 4: parallax fade-up on sections ---------- */
+[data-parallax]{will-change:transform,opacity}
+
+/* ---------- hero exit while scrolling (no pinning) ---------- */
+.hx__wrap,.hx__orb{will-change:transform,opacity}
+
+/* ---------- stop everything together ---------- */
+html[data-motion="paused"] .mq,
+html[data-motion="paused"] .mq__track,
+html[data-motion="paused"] .spectrum-rule::after,
+html[data-motion="paused"] .page-head .wrap::after::after{animation-play-state:paused}
+
+@media (prefers-reduced-motion:reduce){
+  .mq{animation:none}
+  .mq__track{animation:none}
+  .spectrum-rule::after,.page-head .wrap::after::after{animation:none;display:none}
+  [data-parallax]{transform:none!important;opacity:1!important}
+}
+@media (max-width:720px){
+  .mq__item{font-size:.74rem;letter-spacing:.12em}
+}
