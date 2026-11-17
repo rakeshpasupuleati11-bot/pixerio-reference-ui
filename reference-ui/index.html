@@ -17,6 +17,7 @@
 <link rel="icon" href="assets/img/pixerio-logo.png">
 <link rel="stylesheet" href="assets/css/px.css?v=20261117b">
 <link rel="stylesheet" href="assets/css/tokens.css?v=20261117b">
+<link rel="stylesheet" href="assets/css/pagehead.css?v=20261117b">
 <link rel="stylesheet" href="assets/css/hero.css?v=20261117b">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Organization","LocalBusiness"],"@id":"https://pixerio.com/#organization","name":"Pixerio","url":"https://pixerio.com/","logo":"https://pixerio.com/assets/img/pixerio-logo.png","image":"https://pixerio.com/assets/img/pixerio-logo.png","description":"Creative and digital services company in Bengaluru: brand and design, digital platforms, video and motion, 3D and immersive, learning, search and marketing.","email":"info@pixerio.com","telephone":"+91-99000-71841","address":{"@type":"PostalAddress","streetAddress":"JC Nagar","addressLocality":"Bengaluru","addressRegion":"Karnataka","addressCountry":"IN"},"areaServed":"IN","sameAs":["https://360video.pixerio.com/Pixerio-360-room/"]}]}</script>
 </head>
@@ -65,6 +66,7 @@
 
 <!-- HERO -->
   <section class="hx" aria-label="Pixerio — creative and digital services">
+    <canvas class="hero-bg" id="hero-bg" aria-hidden="true"></canvas>
     <div class="hx__wrap">
       <div class="hx__copy">
         <span class="hx__chip">Creative and digital services &middot; Bengaluru</span>
@@ -87,15 +89,9 @@
         </ul>
       </div>
 
-      <figure class="hx__shot" data-shot>
-        <img data-shot-img class="on" src="assets/img/work/Lamda-Components-Stall-Design.webp" data-name="Lamda Components — Exhibition stand design" data-href="3d-visualization.html" alt="Lamda Components: exhibition stand design by Pixerio" width="1600" height="1200" fetchpriority="high" decoding="async">
-        <img data-shot-img src="assets/img/work/Snacs-Constructions-Branding.webp" data-name="Snacs Constructions — Brand and collateral" data-href="graphic-design.html" alt="Snacs Constructions: brand and collateral by Pixerio" width="1600" height="1200" loading="lazy" decoding="async">
-        <img data-shot-img src="assets/img/work/Social-Media-Creatives.webp" data-name="Social creative — Campaign assets" data-href="digital-marketing-company.html" alt="Social creative: campaign assets by Pixerio" width="1600" height="1200" loading="lazy" decoding="async">
-        <figcaption>
-          <a data-shot-link href="3d-visualization.html"><span>Selected work</span><span data-shot-name>Lamda Components — Exhibition stand design</span></a>
-          <i data-shot-idx>01 / 03</i>
-        </figcaption>
-      </figure>
+      <div class="hx__orb" aria-hidden="true">
+        <i></i><i></i><i></i><span></span>
+      </div>
     </div>
   </section>
 
@@ -397,8 +393,10 @@
 </footer>
 
 <script src="assets/js/px.js?v=20261117b" defer></script>
+<script src="assets/js/pagehead.js?v=20261117b" defer></script>
 <script src="assets/js/motion.js?v=20261117b" defer></script>
 <script src="assets/js/hero.js?v=20261117b" defer></script>
+<script src="assets/js/hero-enter.js?v=20261117b" defer></script>
 <script src="assets/js/hero-bg.js?v=20261117b" defer></script>
 </body>
 </html>
