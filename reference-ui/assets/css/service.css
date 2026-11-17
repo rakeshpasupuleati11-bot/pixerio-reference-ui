@@ -1,0 +1,62 @@
+/* ==========================================================================
+   Pixerio — service page system v1
+   Applied to all six service pages through the components they already use:
+   .sec-head, .step, .link, plus a new .relwork strip for pages that carried
+   no work. One rhythm, one type scale, one hairline language.
+   Palette comes from tokens.css (brand teal fills, AA teal for text).
+   ========================================================================== */
+
+/* ---------- rhythm: every section breathes the same amount ---------- */
+.section{padding-block:clamp(52px,5.5vw,92px)}
+.section--tight{padding-block:clamp(36px,3.5vw,56px)}
+
+/* ---------- section heads: a rule, a label, a title ---------- */
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:24px;
+  flex-wrap:wrap;margin-bottom:clamp(22px,2.4vw,34px);padding-top:18px;position:relative}
+.sec-head::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;
+  background:var(--line,rgba(18,50,74,.14))}
+.sec-head::after{content:"";position:absolute;left:0;top:-1px;width:56px;height:2px;
+  background:var(--brand-teal);border-radius:2px}
+.sec-head h2{margin:0;font-size:clamp(1.5rem,2.5vw,2.2rem);letter-spacing:-.03em;
+  line-height:1.1}
+.sec-head .link{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);
+  font-size:11px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--brand-teal-text);text-decoration:none}
+.sec-head .link svg{width:14px;height:14px;transition:transform .3s var(--ease)}
+.sec-head .link:hover svg{transform:translateX(4px)}
+
+/* ---------- the three stages: numeral, rule, output ---------- */
+.step{display:grid;grid-template-columns:64px minmax(0,1fr);gap:20px;
+  padding:22px 0;border-top:1px solid var(--line,rgba(18,50,74,.14))}
+.step:last-of-type{border-bottom:1px solid var(--line,rgba(18,50,74,.14))}
+.step__n{font-family:var(--mono);font-size:clamp(26px,3vw,38px);line-height:1;
+  letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.step h3{margin:0 0 8px;font-size:clamp(1.05rem,1.5vw,1.25rem);font-weight:500;
+  letter-spacing:-.015em}
+.step p{margin:0;max-width:62ch;line-height:1.6;opacity:.92}
+.step__icon{width:26px;height:26px;margin-bottom:10px}
+.step__out{display:inline-flex;align-items:center;gap:7px;margin-top:12px;padding:5px 9px;
+  border-radius:3px;background:rgba(0,179,189,.16);color:inherit;
+  font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+
+/* ---------- related work strip (pages that had none) ---------- */
+.relwork__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(12px,1.6vw,20px)}
+.relwork figure{margin:0;border-radius:var(--r,14px);overflow:hidden;
+  border:1px solid var(--line,rgba(18,50,74,.14));background:#fff}
+.relwork figure>a{display:block;position:relative;overflow:hidden}
+.relwork img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;
+  transition:transform .9s cubic-bezier(.16,1,.3,1)}
+.relwork figure:hover img{transform:scale(1.04)}
+.relwork figcaption{padding:14px 16px;display:flex;align-items:baseline;
+  justify-content:space-between;gap:14px}
+.relwork figcaption strong{font-weight:500;font-size:.95rem;letter-spacing:-.01em}
+.relwork figcaption span{font-family:var(--mono);font-size:10px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--brand-teal-text);white-space:nowrap}
+
+@media (max-width:760px){
+  .step{grid-template-columns:44px minmax(0,1fr);gap:14px}
+  .relwork__grid{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  .relwork img,.sec-head .link svg{transition:none}
+}
