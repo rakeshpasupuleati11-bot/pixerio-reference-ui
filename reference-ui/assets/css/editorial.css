@@ -1,0 +1,137 @@
+/* ==========================================================================
+   Pixerio — editorial system v1
+   Scoped by body[data-page="…"] so each page keeps its own composition while
+   sharing one typographic and spacing language. Covers about, portfolio,
+   case study, blog, article and contact.
+   ========================================================================== */
+
+/* ---------- shared: section heads on prose pages ---------- */
+body[data-page="about-us.html"] h2,
+body[data-page="case-study.html"] h2,
+body[data-page="article.html"] h2{
+  position:relative;padding-top:16px;margin-top:clamp(30px,3.4vw,48px);
+  font-size:clamp(1.5rem,2.5vw,2.15rem);letter-spacing:-.03em;line-height:1.12}
+body[data-page="about-us.html"] h2::before,
+body[data-page="case-study.html"] h2::before,
+body[data-page="article.html"] h2::before{
+  content:"";position:absolute;left:0;right:0;top:0;height:1px;
+  background:var(--line,rgba(18,50,74,.14))}
+body[data-page="about-us.html"] h2::after,
+body[data-page="case-study.html"] h2::after,
+body[data-page="article.html"] h2::after{
+  content:"";position:absolute;left:0;top:-1px;width:52px;height:2px;
+  background:var(--brand-teal);border-radius:2px}
+
+/* ---------- about: editorial opening ---------- */
+body[data-page="about-us.html"] .page-head h1{max-width:20ch}
+body[data-page="about-us.html"] .page-head .lead,
+body[data-page="about-us.html"] main>section:first-of-type .lead{
+  font-size:clamp(1.12rem,1.6vw,1.32rem);line-height:1.6;color:var(--ink2,#2A4A63);
+  max-width:58ch}
+/* a standfirst that reads like an opening statement */
+body[data-page="about-us.html"] main>section:first-of-type>p:first-of-type{
+  font-size:clamp(1.15rem,1.7vw,1.4rem);line-height:1.55;letter-spacing:-.01em;
+  max-width:60ch;color:var(--navy)}
+/* images read as plates, never as raw uploads */
+body[data-page="about-us.html"] .feature__media img,
+body[data-page="case-study.html"] .feature__media img{
+  width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+body[data-page="about-us.html"] .feature__media,
+body[data-page="case-study.html"] .feature__media{
+  border-radius:var(--r,14px);overflow:hidden;border:1px solid var(--line,rgba(18,50,74,.14))}
+
+/* ---------- portfolio: one uniform grid, no filters ---------- */
+body[data-page="pixerio-portfolio.html"] .work{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:clamp(10px,1.4vw,18px);align-items:start}
+body[data-page="pixerio-portfolio.html"] .work figure,
+body[data-page="pixerio-portfolio.html"] .work a{overflow:hidden}
+body[data-page="pixerio-portfolio.html"] .work img{
+  width:100%;aspect-ratio:4/3;object-fit:cover;display:block;
+  transition:transform .8s cubic-bezier(.16,1,.3,1)}
+body[data-page="pixerio-portfolio.html"] .work figure:hover img,
+body[data-page="pixerio-portfolio.html"] .work a:hover img{transform:scale(1.035)}
+body[data-page="pixerio-portfolio.html"] .work figcaption,
+body[data-page="pixerio-portfolio.html"] .work h3{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink2,#2A4A63);margin:10px 0 0;line-height:1.4}
+@media (max-width:900px){
+  body[data-page="pixerio-portfolio.html"] .work{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:560px){
+  body[data-page="pixerio-portfolio.html"] .work{grid-template-columns:1fr}
+}
+
+/* ---------- case study + article: a readable measure ---------- */
+body[data-page="case-study.html"] main p,
+body[data-page="article.html"] main p{
+  max-width:66ch;line-height:1.72;color:var(--ink2,#2A4A63)}
+body[data-page="article.html"] main p{font-size:1.06rem}
+body[data-page="article.html"] main img{width:100%;height:auto;border-radius:var(--r,14px);
+  margin:clamp(20px,2.6vw,34px) 0}
+body[data-page="article.html"] main blockquote{
+  margin:clamp(24px,3vw,38px) 0;padding:4px 0 4px 22px;border-left:2px solid var(--brand-teal);
+  font-size:clamp(1.1rem,1.5vw,1.3rem);line-height:1.5;letter-spacing:-.01em;max-width:60ch}
+body[data-page="article.html"] main ul,
+body[data-page="article.html"] main ol{max-width:66ch;padding-left:20px;line-height:1.72}
+body[data-page="article.html"] main li{margin:6px 0}
+body[data-page="article.html"] main h3{margin-top:clamp(24px,3vw,36px);
+  font-size:clamp(1.1rem,1.5vw,1.3rem);letter-spacing:-.02em}
+
+/* ---------- blog: cards with a fixed crop ---------- */
+body[data-page="blog.html"] main article,
+body[data-page="blog.html"] main .card{
+  border-top:1px solid var(--line,rgba(18,50,74,.14));padding-top:18px;margin-top:22px}
+body[data-page="blog.html"] main article img,
+body[data-page="blog.html"] main .card img{
+  width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:var(--r,14px)}
+body[data-page="blog.html"] main h2,
+body[data-page="blog.html"] main h3{letter-spacing:-.025em;line-height:1.18}
+body[data-page="blog.html"] main p{max-width:62ch;color:var(--ink2,#2A4A63)}
+
+/* ---------- contact: a real form layout ---------- */
+body[data-page="contact-us.html"] form{
+  display:grid;grid-template-columns:1fr 1fr;gap:16px 18px;
+  max-width:760px;margin-top:clamp(20px,2.6vw,32px)}
+body[data-page="contact-us.html"] form>*{min-width:0}
+body[data-page="contact-us.html"] form label,
+body[data-page="contact-us.html"] form .field{display:grid;gap:7px}
+body[data-page="contact-us.html"] label>span,
+body[data-page="contact-us.html"] .field>span{
+  font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--muted,#52616E)}
+body[data-page="contact-us.html"] input,
+body[data-page="contact-us.html"] select,
+body[data-page="contact-us.html"] textarea{
+  width:100%;padding:12px 13px;border:1px solid var(--line,rgba(18,50,74,.18));
+  border-radius:8px;background:#fff;font:inherit;font-size:.95rem;color:var(--navy);
+  transition:border-color .25s ease,box-shadow .25s ease}
+body[data-page="contact-us.html"] input:focus,
+body[data-page="contact-us.html"] select:focus,
+body[data-page="contact-us.html"] textarea:focus{
+  outline:0;border-color:var(--brand-teal);box-shadow:var(--focus)}
+body[data-page="contact-us.html"] textarea{min-height:130px;resize:vertical}
+/* full-width rows */
+body[data-page="contact-us.html"] form textarea,
+body[data-page="contact-us.html"] form button[type="submit"],
+body[data-page="contact-us.html"] form .full{grid-column:1 / -1}
+body[data-page="contact-us.html"] form button[type="submit"]{
+  justify-self:start;padding:13px 22px;border:0;border-radius:999px;
+  background:var(--brand-teal);color:#fff;font-weight:600;cursor:pointer;
+  transition:background .25s ease,transform .25s ease}
+body[data-page="contact-us.html"] form button[type="submit"]:hover{background:#00a1aa}
+body[data-page="contact-us.html"] form button[type="submit"]:active{transform:translateY(1px)}
+/* validation + status */
+body[data-page="contact-us.html"] .field--bad input,
+body[data-page="contact-us.html"] .field--bad textarea{border-color:#C0392B}
+.formnote{margin-top:10px;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted,#52616E)}
+.formnote--ok{color:var(--brand-teal-text)}
+.formnote--bad{color:#C0392B}
+@media (max-width:720px){
+  body[data-page="contact-us.html"] form{grid-template-columns:1fr}
+}
+
+@media (prefers-reduced-motion:reduce){
+  body[data-page="pixerio-portfolio.html"] .work img{transition:none}
+}
