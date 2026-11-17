@@ -61,3 +61,60 @@ html[data-motion="paused"] .page-head .wrap::after::after{animation-play-state:p
 @media (max-width:720px){
   .mq__item{font-size:.74rem;letter-spacing:.12em}
 }
+
+/* ---------- scroll progress rail across the top ---------- */
+.sprog{position:fixed;left:0;top:0;height:2px;width:100%;z-index:60;pointer-events:none;
+  background:transparent}
+.sprog i{display:block;height:100%;width:0;transform-origin:left;
+  background:linear-gradient(90deg,var(--brand-teal),var(--brand-cyan),var(--brand-green),var(--brand-lime),var(--brand-amber))}
+
+/* ---------- kinetic type band: two rows running opposite ways ---------- */
+.kin{position:relative;overflow:hidden;padding:clamp(26px,4vw,52px) 0;margin-top:clamp(30px,4vw,56px);
+  border-block:1px solid rgba(18,50,74,.10)}
+.kin__row{display:flex;width:max-content;will-change:transform}
+.kin__row--a{animation:kin-a 40s linear infinite}
+.kin__row--b{animation:kin-b 46s linear infinite;margin-top:6px}
+.kin__w{font-size:clamp(2.4rem,6.4vw,5.6rem);font-weight:500;letter-spacing:-.04em;
+  line-height:.95;padding-right:.28em;white-space:nowrap;color:transparent;
+  -webkit-text-stroke:1px rgba(18,50,74,.28)}
+.kin__w:nth-child(odd){color:rgba(18,50,74,.92);-webkit-text-stroke:0}
+@keyframes kin-a{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+@keyframes kin-b{from{transform:translate3d(-50%,0,0)}to{transform:translate3d(0,0,0)}}
+html[data-motion="paused"] .kin__row{animation-play-state:paused}
+
+/* ---------- horizontal work rail (native scroll, no hijack) ---------- */
+.rail{position:relative;margin-top:clamp(30px,4vw,56px);padding-bottom:10px}
+.rail__head{display:flex;align-items:baseline;justify-content:space-between;gap:20px;
+  flex-wrap:wrap;margin-bottom:16px}
+.rail__head h2{margin:0;font-size:clamp(1.4rem,2.3vw,2rem);letter-spacing:-.03em;color:var(--navy)}
+.rail__nav{display:flex;gap:8px}
+.rail__nav button{width:38px;height:38px;border-radius:50%;border:1px solid rgba(18,50,74,.18);
+  background:#fff;color:var(--navy);font-size:16px;cursor:pointer;
+  transition:background .25s ease,border-color .25s ease,color .25s ease}
+.rail__nav button:hover{background:var(--brand-teal);border-color:var(--brand-teal);color:#fff}
+.rail__track{display:flex;gap:clamp(12px,1.4vw,18px);overflow-x:auto;scroll-snap-type:x mandatory;
+  scrollbar-width:none;padding-bottom:6px;cursor:grab}
+.rail__track::-webkit-scrollbar{display:none}
+.rail__track.dragging{cursor:grabbing;scroll-snap-type:none}
+.rail__item{flex:0 0 clamp(240px,30vw,380px);scroll-snap-align:start;margin:0}
+.rail__item a{display:block;border-radius:14px;overflow:hidden;border:1px solid rgba(18,50,74,.12);
+  background:#fff}
+.rail__item img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;
+  transition:transform .8s cubic-bezier(.16,1,.3,1)}
+.rail__item:hover img{transform:scale(1.045)}
+.rail__item span{display:block;padding:12px 14px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--brand-teal-text)}
+
+/* ---------- clip reveal for photography ---------- */
+/* note: clip-path on the observed element collapses its intersection rect and
+   deadlocks IntersectionObserver, so the reveal runs on transform/opacity and
+   the inner image does the uncover. */
+.clip{opacity:0;transform:translateY(20px);
+  transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+.clip.in{opacity:1;transform:none}
+.clip img{clip-path:inset(0 0 100% 0);transition:clip-path 1s cubic-bezier(.16,1,.3,1) .05s}
+.clip.in img{clip-path:inset(0 0 0 0)}
+@media (prefers-reduced-motion:reduce){
+  .clip,.clip img{clip-path:none;opacity:1;transform:none;transition:none}
+  .kin__row{animation:none}
+}

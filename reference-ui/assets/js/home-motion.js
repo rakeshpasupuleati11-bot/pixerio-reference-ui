@@ -46,6 +46,11 @@
       el.style.opacity = still() ? '1' : (0.2 + eased * 0.8).toFixed(3);
     });
 
+    if (sprogBar) {
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      sprogBar.style.width = (max > 0 ? Math.min(100, (window.scrollY / max) * 100) : 0).toFixed(2) + '%';
+    }
+
     if (heroWrap && !still()) {
       var hr = heroWrap.getBoundingClientRect();
       var hp = Math.min(1, Math.max(0, -hr.top / (vh * 0.9)));
@@ -80,6 +85,55 @@
   if (window.MutationObserver) {
     new MutationObserver(syncStill)
       .observe(document.documentElement, { attributes: true, attributeFilter: ['data-motion'] });
+  }
+
+  /* ---------- scroll progress rail ---------- */
+  var sprog = document.createElement('div');
+  sprog.className = 'sprog';
+  sprog.innerHTML = '<i></i>';
+  document.body.appendChild(sprog);
+  var sprogBar = sprog.firstChild;
+
+  /* ---------- kinetic band: duplicate rows for a seamless loop ---------- */
+  document.querySelectorAll('.kin__row').forEach(function (row) {
+    if (row.children.length && row.dataset.done !== '1') {
+      row.innerHTML = row.innerHTML + row.innerHTML;
+      row.dataset.done = '1';
+    }
+  });
+
+  /* ---------- horizontal rail: drag + arrow buttons ---------- */
+  document.querySelectorAll('.rail').forEach(function (rail) {
+    var track = rail.querySelector('.rail__track');
+    var prev = rail.querySelector('[data-rail-prev]');
+    var next = rail.querySelector('[data-rail-next]');
+    if (!track) return;
+    var step = function () { return Math.max(260, track.clientWidth * 0.8); };
+    if (prev) prev.addEventListener('click', function () { track.scrollBy({ left: -step(), behavior: 'smooth' }); });
+    if (next) next.addEventListener('click', function () { track.scrollBy({ left: step(), behavior: 'smooth' }); });
+    var down = false, sx = 0, sl = 0;
+    track.addEventListener('pointerdown', function (e) {
+      down = true; sx = e.clientX; sl = track.scrollLeft; track.classList.add('dragging');
+    });
+    track.addEventListener('pointermove', function (e) {
+      if (!down) return;
+      track.scrollLeft = sl - (e.clientX - sx);
+    });
+    ['pointerup', 'pointerleave', 'pointercancel'].forEach(function (ev) {
+      track.addEventListener(ev, function () { down = false; track.classList.remove('dragging'); });
+    });
+  });
+
+  /* ---------- clip reveal ---------- */
+  if (window.IntersectionObserver) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('.clip').forEach(function (el) { io.observe(el); });
+  } else {
+    document.querySelectorAll('.clip').forEach(function (el) { el.classList.add('in'); });
   }
 
   // seed: mark the sections that should ride in
