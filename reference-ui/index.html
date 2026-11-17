@@ -16,8 +16,7 @@
 <link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="assets/img/pixerio-logo.png">
 <link rel="stylesheet" href="assets/css/px.css">
-<link rel="stylesheet" href="assets/css/hero-work.css">
-<link rel="stylesheet" href="assets/css/hero-motion.css">
+<link rel="stylesheet" href="assets/css/story.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Organization","LocalBusiness"],"@id":"https://pixerio.com/#organization","name":"Pixerio","url":"https://pixerio.com/","logo":"https://pixerio.com/assets/img/pixerio-logo.png","image":"https://pixerio.com/assets/img/pixerio-logo.png","description":"Creative and digital services company in Bengaluru: brand and design, digital platforms, video and motion, 3D and immersive, learning, search and marketing.","email":"info@pixerio.com","telephone":"+91-99000-71841","address":{"@type":"PostalAddress","streetAddress":"JC Nagar","addressLocality":"Bengaluru","addressRegion":"Karnataka","addressCountry":"IN"},"areaServed":"IN","sameAs":["https://360video.pixerio.com/Pixerio-360-room/"]}]}</script>
 </head>
 <body data-page="index.html">
@@ -63,103 +62,152 @@
 
 <main id="main">
 
-  <!-- HERO -->
-  <section class="wrap page-head" style="border-bottom:0">
-    <canvas class="hero-bg" id="hero-bg" aria-hidden="true"></canvas>
-    <div class="crumbs"><a href="index.html">Home</a><span>/</span><span>Creative and digital services</span></div>
-    <h1 data-split>Ideas are everywhere.<br>We make them <em>matter</em>.</h1>
-    <p class="lead">Six services, each with its own buyer, under one partner in Bengaluru. We design it, build it, and stay until it works where it gets used.</p>
-    <div class="hero__actions" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:32px">
-      <a class="btn" href="contact-us.html"><span class="btn__label">Discuss your project</span></a>
-      <a class="btn btn--ghost" href="#work"><span class="btn__label">See the work</span></a>
-    </div>
+<!-- STORY -->
+  <section class="story" id="story" data-story aria-label="Pixerio in five beats">
+    <div class="story__stage">
+      <div class="story__cam" data-cam aria-hidden="true">
+        <div class="story__plate" data-plate>
+          <img src="assets/img/work/Lamda-Components-Stall-Design.webp" alt="" width="1600" height="1200" fetchpriority="high" decoding="async">
+        </div>
+      </div>
+      <div class="story__haze" aria-hidden="true"></div>
 
-    <div class="feature" style="margin-top:clamp(36px,6vw,72px)" data-reveal>
-      <div class="works" data-works aria-roledescription="carousel" aria-label="Selected work, one project per service">
-        <div class="works__stage">
-          <ul class="works__slides">
-            <li class="works__slide" data-slide data-on="true" data-num="01" data-title="Brand and design"
-                data-promise="Identity, print and packaging, from first mark to shelf."
-                data-meta="Selected work &middot; Snacs Constructions branding" data-href="graphic-design.html">
-              <picture>
-                <source srcset="assets/img/work/Snacs-Constructions-Branding.webp" type="image/webp">
-                <img src="assets/img/work/Snacs-Constructions-Branding.jpg" alt="Snacs Constructions branding designed by Pixerio" width="1600" height="1200" loading="eager" fetchpriority="high" decoding="async">
-              </picture>
-            </li>
-            <li class="works__slide" data-slide data-on="false" data-num="02" data-title="Digital platforms"
-                data-promise="Websites, e-commerce and the systems that keep them running."
-                data-meta="Selected work &middot; NPS Agara School website" data-href="web-development.html">
-              <picture>
-                <source srcset="assets/img/work/NPS-Agara-School-Website.webp" type="image/webp">
-                <img src="assets/img/work/NPS-Agara-School-Website.jpg" alt="NPS Agara School website built by Pixerio" width="1600" height="1200" loading="eager" decoding="async">
-              </picture>
-            </li>
-            <li class="works__slide" data-slide data-on="false" data-num="03" data-title="Video and motion"
-                data-promise="Films, explainers and motion design for launch and demand."
-                data-meta="Selected work &middot; Lakshmi Videos" data-href="multimedia-services.html">
-              <picture>
-                <source srcset="assets/img/work/Lakshmi-Videos-Website.webp" type="image/webp">
-                <img src="assets/img/work/Lakshmi-Videos-Website.jpg" alt="Lakshmi Videos project by Pixerio" width="1600" height="1200" loading="eager" decoding="async">
-              </picture>
-            </li>
-            <li class="works__slide" data-slide data-on="false" data-num="04" data-title="3D and immersive"
-                data-promise="Walkthroughs, product visuals and AR for things that don&rsquo;t exist yet."
-                data-meta="Selected work &middot; Lamda Components exhibition stand" data-href="3d-visualization.html">
-              <picture>
-                <source srcset="assets/img/work/Lamda-Components-Stall-Design.webp" type="image/webp">
-                <img src="assets/img/work/Lamda-Components-Stall-Design.jpg" alt="Lamda Components exhibition stand designed by Pixerio" width="1600" height="1200" loading="eager" decoding="async">
-              </picture>
-            </li>
-            <li class="works__slide" data-slide data-on="false" data-num="05" data-title="Learning"
-                data-promise="Courseware and e-learning for people who have to use it, not just watch it."
-                data-meta="" data-href="e-learning.html">
-              <img src="assets/img/service-2d/service-05.webp" alt="Learning service by Pixerio" width="1324" height="745" loading="eager" decoding="async">
-            </li>
-            <li class="works__slide" data-slide data-on="false" data-num="06" data-title="Search and marketing"
-                data-promise="SEO, campaigns and social creative that carry one brand voice."
-                data-meta="Selected work &middot; social creative" data-href="digital-marketing-company.html">
-              <picture>
-                <source srcset="assets/img/work/Social-Media-Creatives.webp" type="image/webp">
-                <img src="assets/img/work/Social-Media-Creatives.jpg" alt="Social media creatives by Pixerio" width="1600" height="1200" loading="eager" decoding="async">
-              </picture>
-            </li>
-          </ul>
+      <div class="story__layer" data-layer="0">
+        <div class="story__hero" data-hero>
+          <span class="story__chip">Creative and digital services &middot; Bengaluru</span>
+          <h1>
+            <span class="story__line"><span>Ideas are everywhere.</span></span>
+            <span class="story__line"><span>We make them <em>matter</em>.</span></span>
+          </h1>
+        </div>
+      </div>
 
-          <div class="works__copy">
-            <p class="works__kick">Service <span data-num>01</span> / 06 &middot; one partner, Bengaluru</p>
-            <h2 class="works__title" data-title>Brand and design</h2>
-            <p class="works__promise" data-promise>Identity, print and packaging, from first mark to shelf.</p>
-            <p class="works__meta" data-meta>Selected work &middot; Snacs Constructions branding</p>
-            <a class="works__cta" data-cta href="graphic-design.html">Open the service</a>
+      <div class="story__front" data-front aria-hidden="true">
+        <img src="assets/img/work/Lamda-Components-Stall-Design.webp" alt="" width="1600" height="1200" decoding="async">
+      </div>
+
+      <div class="story__layer" data-layer="1b">
+        <div class="story__herofoot" data-herofoot>
+          <p class="story__lead">Six services, each with its own buyer, under one partner in Bengaluru. We design it, build it, and stay until it works where it gets used.</p>
+          <div class="story__acts">
+            <a class="btn" href="contact-us.html"><span class="btn__label">Discuss your project</span></a>
+            <a class="btn btn--ghost" href="#work"><span class="btn__label">See the work</span></a>
           </div>
-
-          <div class="works__bar" aria-hidden="true"><i data-bar></i></div>
-        </div>
-
-        <ol class="works__tabs" data-tabs>
-          <li><button class="works__tab" type="button" data-tab aria-selected="true"><span class="works__tabnum">01</span>Brand and design</button></li>
-          <li><button class="works__tab" type="button" data-tab aria-selected="false"><span class="works__tabnum">02</span>Digital platforms</button></li>
-          <li><button class="works__tab" type="button" data-tab aria-selected="false"><span class="works__tabnum">03</span>Video and motion</button></li>
-          <li><button class="works__tab" type="button" data-tab aria-selected="false"><span class="works__tabnum">04</span>3D and immersive</button></li>
-          <li><button class="works__tab" type="button" data-tab aria-selected="false"><span class="works__tabnum">05</span>Learning</button></li>
-          <li><button class="works__tab" type="button" data-tab aria-selected="false"><span class="works__tabnum">06</span>Search and marketing</button></li>
-        </ol>
-      </div>
-      <div>
-        <p class="eyebrow">In the portfolio</p>
-        <div class="bento" style="grid-template-columns:1fr 1fr">
-          <div class="info"><div class="info__rule"></div><h3>22 documented projects</h3><p>Brand, print, packaging, web, and exhibition work — all visible in the portfolio.</p></div>
-          <div class="info info--soft"><div class="info__rule"></div><h3>03 stages</h3><p>Discovery, implementation, deployment. Each ends in something you can hold.</p></div>
-          <div class="info info--soft"><div class="info__rule"></div><h3>01 partner</h3><p>The same team from the first workshop to the last file.</p></div>
-          <div class="info"><div class="info__rule"></div><h3>Bengaluru</h3><p>JC Nagar, Mahalakshmi Layout — working across India.</p></div>
         </div>
       </div>
+
+      <div class="story__layer" data-layer="1">
+        <ul class="story__plates">
+              <li class="story__plate" data-plate-item data-name="3D and immersive">
+                <img src="assets/img/service-2d/service-01.webp" alt="3D and immersive — Pixerio service" width="1324" height="745" loading="eager" decoding="async">
+                <figcaption>01<span><b>3D and immersive</b></span></figcaption>
+              </li>
+              <li class="story__plate" data-plate-item data-name="Digital platforms">
+                <img src="assets/img/service-2d/service-02.webp" alt="Digital platforms — Pixerio service" width="1324" height="745" loading="eager" decoding="async">
+                <figcaption>02<span><b>Digital platforms</b></span></figcaption>
+              </li>
+              <li class="story__plate" data-plate-item data-name="Video and motion">
+                <img src="assets/img/service-2d/service-03.webp" alt="Video and motion — Pixerio service" width="1324" height="745" loading="eager" decoding="async">
+                <figcaption>03<span><b>Video and motion</b></span></figcaption>
+              </li>
+              <li class="story__plate" data-plate-item data-name="Brand and design">
+                <img src="assets/img/service-2d/service-04.webp" alt="Brand and design — Pixerio service" width="1324" height="745" loading="eager" decoding="async">
+                <figcaption>04<span><b>Brand and design</b></span></figcaption>
+              </li>
+              <li class="story__plate" data-plate-item data-name="Learning">
+                <img src="assets/img/service-2d/service-05.webp" alt="Learning — Pixerio service" width="1324" height="745" loading="eager" decoding="async">
+                <figcaption>05<span><b>Learning</b></span></figcaption>
+              </li>
+              <li class="story__plate" data-plate-item data-name="Search and marketing">
+                <img src="assets/img/service-2d/service-06.webp" alt="Search and marketing — Pixerio service" width="1324" height="745" loading="eager" decoding="async">
+                <figcaption>06<span><b>Search and marketing</b></span></figcaption>
+              </li>
+        </ul>
+        <p class="story__count" data-count>01 / 06 &mdash; 3D and immersive</p>
+      </div>
+
+      <div class="story__layer" data-layer="2">
+        <div class="story__approach" data-approach>
+          <span class="story__chip" style="background:#fff;color:#12324A">Our approach</span>
+          <h2 data-words>We design it, build it, and stay until it works where it gets used.</h2>
+          <p>Discovery, implementation, deployment &mdash; each stage ends in something you can hold.</p>
+        </div>
+      </div>
+
+      <div class="story__layer" data-layer="3">
+        <p class="story__acct" data-acct>Our work is documented, not described: twenty-two projects, twelve named clients, six services. Every one of them is visible in the portfolio, with the files behind it.</p>
+        <div class="story__spots">
+            <button class="story__spot" data-spot type="button" style="left:12%;top:58%"><i aria-hidden="true"></i><span>22 projects</span><em>in the portfolio</em></button>
+            <button class="story__spot" data-spot type="button" style="left:33%;top:41%"><i aria-hidden="true"></i><span>12 clients</span><em>named on the ribbon</em></button>
+            <button class="story__spot" data-spot type="button" style="left:70%;top:66%"><i aria-hidden="true"></i><span>6 services</span><em>one partner</em></button>
+            <button class="story__spot" data-spot type="button" style="left:83%;top:47%"><i aria-hidden="true"></i><span>3 stages</span><em>discovery to live</em></button>
+        </div>
+      </div>
+
+      <div class="story__layer" data-layer="4">
+        <div class="story__cred" data-cred>
+          <span class="tag">&#9670; The studio</span>
+          <h3>One team from the first workshop to the last file</h3>
+        </div>
+        <div class="story__card" data-card>
+          <h4>Documented work<br>in the portfolio</h4>
+          <p class="story__note">Bengaluru &middot; six services</p>
+          <p class="story__num"><b data-num>0</b><span>projects</span></p>
+          <div class="story__ticks" aria-hidden="true">
+            <i data-tick></i><i data-tick></i><i data-tick></i><i data-tick></i><i data-tick></i><i data-tick></i>
+          </div>
+          <p class="story__foot">One ledger per service</p>
+        </div>
+        <ul class="story__feats">
+            <li data-feat><i>01</i><span>3D and immersive</span></li>
+            <li data-feat><i>02</i><span>Digital platforms</span></li>
+            <li data-feat><i>03</i><span>Video and motion</span></li>
+            <li data-feat><i>04</i><span>Brand and design</span></li>
+            <li data-feat><i>05</i><span>Learning</span></li>
+            <li data-feat><i>06</i><span>Search and marketing</span></li>
+        </ul>
+      </div>
+
+      <div class="story__prog" aria-hidden="true"><i data-prog></i></div>
     </div>
-
-    <a class="hero-cue" href="#work" data-cue><span>Scroll</span><i aria-hidden="true"></i></a>
   </section>
 
-  <!-- CLIENT RIBBON -->
+  <section class="story__panel" data-panel aria-label="Our work">
+    <div class="story__panelhead">
+      <div>
+        <span class="story__chip" style="background:#12324A;color:#fff">Our work</span>
+        <h2>Six services, one partner, and the files to prove it</h2>
+      </div>
+      <p>Brand and design, digital platforms, video and motion, 3D and immersive, learning, search and marketing &mdash; delivered by one team from JC Nagar, Bengaluru.</p>
+    </div>
+
+    <div class="story__cards">
+      <article class="story__cardx" data-tilt>
+        <div class="bg" style="background-image:url('assets/img/work/Snacs-Constructions-Branding.webp')"></div>
+        <div class="story__xlab"><span>[Brand and design]</span><b>&rarr;</b></div>
+        <div class="story__xbody"><h3>Identity, print and packaging</h3><p>Brand system and collateral for Snacs Constructions.</p></div>
+      </article>
+      <article class="story__cardx" data-tilt>
+        <div class="bg" style="background-image:url('assets/img/work/NPS-Agara-School-Website.webp')"></div>
+        <div class="story__xlab"><span>[Digital platforms]</span><b>&rarr;</b></div>
+        <div class="story__xbody"><h3>Websites built to be maintained</h3><p>The NPS Agara School website, structured for content teams.</p></div>
+      </article>
+      <article class="story__cardx" data-tilt>
+        <div class="bg" style="background-image:url('assets/img/work/Lamda-Components-Stall-Design.webp')"></div>
+        <div class="story__xlab"><span>[3D and immersive]</span><b>&rarr;</b></div>
+        <div class="story__xbody"><h3>Exhibition stands, drawn first</h3><p>Stall design for Lamda Components.</p></div>
+      </article>
+    </div>
+
+    <div class="story__stats">
+      <div><b data-stat="22" data-comma="1">0</b><span>Documented projects</span></div>
+      <div><b data-stat="12">0</b><span>Clients named</span></div>
+      <div><b data-stat="6">0</b><span>Services</span></div>
+      <div><b data-stat="1">0</b><span>Partner</span></div>
+    </div>
+  </section>
+
+    <!-- CLIENT RIBBON -->
   <div class="ribbon" aria-label="Clients whose work is in the portfolio">
     <div class="ribbon__track">
       <span>Tripath Logistics</span><span>Takt</span><span>Lamda Components</span><span>Hitachi</span>
@@ -459,6 +507,6 @@
 <script src="assets/js/px.js" defer></script>
 <script src="assets/js/motion.js" defer></script>
 <script src="assets/js/hero-bg.js" defer></script>
-<script src="assets/js/hero-work.js" defer></script>
+<script src="assets/js/story.js" defer></script>
 </body>
 </html>
