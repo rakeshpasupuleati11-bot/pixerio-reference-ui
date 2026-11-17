@@ -2,7 +2,7 @@
 import os
 
 BASE = os.path.join(os.path.dirname(__file__), "..", "assets", "css")
-SITE = ["px.css", "tokens.css", "pagehead.css", "site-motion.css", "service.css", "editorial.css"]
+SITE = ["px.css", "tokens.css", "pagehead.css", "site-motion.css", "service.css", "editorial.css", "backgrounds.css"]
 HOME = ["hero7.css", "home-motion.css", "sequence.css", "spine.css"]
 BANNER = "/* Pixerio bundle - generated from assets/css/src/*.css. Edit the sources. */\n\n"
 
