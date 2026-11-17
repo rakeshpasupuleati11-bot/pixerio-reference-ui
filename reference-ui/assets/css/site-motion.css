@@ -1,0 +1,53 @@
+/* ==========================================================================
+   Pixerio — site motion v1 (all 18 pages)
+   Generic, markup-agnostic motion so every page animates, not just home:
+     · scroll progress rail across the top
+     · section + image reveals on scroll (staggered, transform/opacity only)
+     · hover micro-interaction on cards and links already in the markup
+     · a soft page-in transition
+   Frozen by html[data-motion="paused"], off under prefers-reduced-motion.
+   ========================================================================== */
+
+/* scroll progress rail */
+.sprog{position:fixed;left:0;top:0;height:2px;width:100%;z-index:60;pointer-events:none}
+.sprog i{display:block;height:100%;width:0;transform-origin:left;
+  background:linear-gradient(90deg,var(--brand-teal),var(--brand-cyan),var(--brand-green),var(--brand-lime),var(--brand-amber))}
+
+/* page-in */
+body{opacity:1;transition:opacity .5s ease}
+html.sm-boot body{opacity:.001}
+
+/* reveals */
+.sm-r{opacity:0;transform:translate3d(0,26px,0);
+  transition:opacity .85s cubic-bezier(.16,1,.3,1),transform .85s cubic-bezier(.16,1,.3,1)}
+.sm-r.sm-in{opacity:1;transform:none}
+
+/* images uncover from the bottom edge, never on the observed node itself */
+.sm-img{opacity:0;transition:opacity .7s ease}
+.sm-img.sm-in{opacity:1}
+.sm-img img{clip-path:inset(0 0 100% 0);transition:clip-path 1s cubic-bezier(.16,1,.3,1) .05s}
+.sm-img.sm-in img{clip-path:inset(0 0 0 0)}
+
+/* hover feedback for the components the site already ships */
+.info,.card,.panel,.step,.article-card{transition:transform .4s cubic-bezier(.16,1,.3,1),
+  box-shadow .4s cubic-bezier(.16,1,.3,1),border-color .4s ease}
+.info:hover,.card:hover,.panel:hover{transform:translateY(-3px)}
+.step:hover{border-color:rgba(0,179,189,.45)}
+a.link:hover{color:var(--brand-teal-text)}
+a.link svg{transition:transform .3s cubic-bezier(.16,1,.3,1)}
+a.link:hover svg{transform:translateX(4px)}
+
+/* the spectrum hairline picks up a slow sheen on inner pages too */
+.spectrum-rule,.page-head .wrap::after{position:relative;overflow:hidden}
+.spectrum-rule::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(100deg,transparent 25%,rgba(255,255,255,.8) 50%,transparent 75%);
+  transform:translateX(-120%);animation:sm-shimmer 7s ease-in-out infinite}
+@keyframes sm-shimmer{0%{transform:translateX(-120%)}60%{transform:translateX(120%)}100%{transform:translateX(120%)}}
+
+html[data-motion="paused"] .spectrum-rule::after{animation-play-state:paused}
+
+@media (prefers-reduced-motion:reduce){
+  .sm-r,.sm-img,.sm-img img{opacity:1!important;transform:none!important;clip-path:none!important;transition:none!important}
+  .spectrum-rule::after{display:none}
+  body{transition:none;opacity:1!important}
+}
