@@ -101,5 +101,16 @@
     }).observe(doc, { attributes: true, attributeFilter: ['data-motion'] });
   }
 
+  /* BUILD_STAMP — a quiet marker so it is always obvious which build is on screen */
+  var foot = document.querySelector('footer .footer__bottom') || document.querySelector('footer');
+  if (foot && !document.querySelector('.build-stamp')) {
+    var b = document.createElement('span');
+    b.className = 'build-stamp';
+    b.style.cssText = 'font-family:var(--mono);font-size:9px;letter-spacing:.14em;' +
+      'text-transform:uppercase;opacity:.45;margin-left:12px;white-space:nowrap';
+    b.textContent = 'build 20261117n';
+    foot.appendChild(b);
+  }
+
   queue();
 })();
