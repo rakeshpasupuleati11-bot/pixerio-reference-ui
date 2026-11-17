@@ -16,6 +16,7 @@
 <link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="assets/img/pixerio-logo.png">
 <link rel="stylesheet" href="assets/css/px.css">
+<link rel="stylesheet" href="assets/css/hero-dial.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Organization","LocalBusiness"],"@id":"https://pixerio.com/#organization","name":"Pixerio","url":"https://pixerio.com/","logo":"https://pixerio.com/assets/img/pixerio-logo.png","image":"https://pixerio.com/assets/img/pixerio-logo.png","description":"Creative and digital services company in Bengaluru: brand and design, digital platforms, video and motion, 3D and immersive, learning, search and marketing.","email":"info@pixerio.com","telephone":"+91-99000-71841","address":{"@type":"PostalAddress","streetAddress":"JC Nagar","addressLocality":"Bengaluru","addressRegion":"Karnataka","addressCountry":"IN"},"areaServed":"IN","sameAs":["https://360video.pixerio.com/Pixerio-360-room/"]}]}</script>
 </head>
 <body data-page="index.html">
@@ -64,12 +65,81 @@
   <!-- HERO -->
   <section class="wrap page-head" style="border-bottom:0">
     <canvas class="hero-bg" id="hero-bg" aria-hidden="true"></canvas>
-    <div class="crumbs"><a href="index.html">Home</a><span>/</span><span>Creative and digital services</span></div>
-    <h1 data-split>Ideas are everywhere.<br>We make them <em>matter</em>.</h1>
-    <p class="lead">Six services, each with its own buyer, under one partner in Bengaluru. We design it, build it, and stay until it works where it gets used.</p>
-    <div class="hero__actions" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:32px">
-      <a class="btn" href="contact-us.html"><span class="btn__label">Discuss your project</span></a>
-      <a class="btn btn--ghost" href="#work"><span class="btn__label">See the work</span></a>
+    <div class="hero-split">
+      <div class="hero-copy">
+        <div class="crumbs"><a href="index.html">Home</a><span>/</span><span>Creative and digital services</span></div>
+        <h1 data-split>Ideas are everywhere.<br>We make them <em>matter</em>.</h1>
+        <p class="lead">Six services, each with its own buyer, under one partner in Bengaluru. We design it, build it, and stay until it works where it gets used.</p>
+        <div class="hero__actions" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:32px">
+          <a class="btn" href="contact-us.html"><span class="btn__label">Discuss your project</span></a>
+          <a class="btn btn--ghost" href="#work"><span class="btn__label">See the work</span></a>
+        </div>
+      </div>
+
+      <div class="dial" data-dial role="group" aria-label="The six services Pixerio runs">
+        <ol class="dial__list">
+          <li class="dial__item" style="--i:0" data-i="0" data-active="true">
+            <a class="dial__node" href="3d-visualization.html" aria-current="true">
+              <img class="dial__thumb" src="assets/img/service-2d/service-01.webp" alt="" width="1324" height="745" loading="lazy" decoding="async">
+              <span class="dial__num">01</span>
+              <span class="dial__label">3D and immersive</span>
+              <span class="dial__promise">Walkthroughs, product visuals and AR for things that don’t exist yet.</span>
+            </a>
+          </li>
+          <li class="dial__item" style="--i:1" data-i="1" data-active="false">
+            <a class="dial__node" href="web-development.html">
+              <img class="dial__thumb" src="assets/img/service-2d/service-02.webp" alt="" width="1324" height="745" loading="lazy" decoding="async">
+              <span class="dial__num">02</span>
+              <span class="dial__label">Digital platforms</span>
+              <span class="dial__promise">Websites, e-commerce and the systems that keep them running.</span>
+            </a>
+          </li>
+          <li class="dial__item" style="--i:2" data-i="2" data-active="false">
+            <a class="dial__node" href="multimedia-services.html">
+              <img class="dial__thumb" src="assets/img/service-2d/service-03.webp" alt="" width="1324" height="745" loading="lazy" decoding="async">
+              <span class="dial__num">03</span>
+              <span class="dial__label">Video and motion</span>
+              <span class="dial__promise">Films, explainers and motion design for launch and demand.</span>
+            </a>
+          </li>
+          <li class="dial__item" style="--i:3" data-i="3" data-active="false">
+            <a class="dial__node" href="graphic-design.html">
+              <img class="dial__thumb" src="assets/img/service-2d/service-04.webp" alt="" width="1324" height="745" loading="lazy" decoding="async">
+              <span class="dial__num">04</span>
+              <span class="dial__label">Brand and design</span>
+              <span class="dial__promise">Identity, print and packaging, from first mark to shelf.</span>
+            </a>
+          </li>
+          <li class="dial__item" style="--i:4" data-i="4" data-active="false">
+            <a class="dial__node" href="e-learning.html">
+              <img class="dial__thumb" src="assets/img/service-2d/service-05.webp" alt="" width="1324" height="745" loading="lazy" decoding="async">
+              <span class="dial__num">05</span>
+              <span class="dial__label">Learning</span>
+              <span class="dial__promise">Courseware and e-learning for people who have to use it, not just watch it.</span>
+            </a>
+          </li>
+          <li class="dial__item" style="--i:5" data-i="5" data-active="false">
+            <a class="dial__node" href="digital-marketing-company.html">
+              <img class="dial__thumb" src="assets/img/service-2d/service-06.webp" alt="" width="1324" height="745" loading="lazy" decoding="async">
+              <span class="dial__num">06</span>
+              <span class="dial__label">Search and marketing</span>
+              <span class="dial__promise">SEO, campaigns and social creative that carry one brand voice.</span>
+            </a>
+          </li>
+        </ol>
+
+        <div class="dial__face">
+          <img data-face-img src="assets/img/service-2d/service-01.webp" alt="" width="1324" height="745" decoding="async">
+          <div class="dial__facecopy">
+            <p class="dial__facekick">Service 01 / 06 &middot; one partner</p>
+            <h2 class="dial__facetitle" data-face-title>3D and immersive</h2>
+            <p class="dial__facepromise" data-face-promise>Walkthroughs, product visuals and AR for things that don’t exist yet.</p>
+            <a class="dial__facecta" data-face-link href="3d-visualization.html">Open the service</a>
+          </div>
+        </div>
+
+        <div class="dial__dots" data-dots aria-hidden="true"></div>
+      </div>
     </div>
 
     <div class="feature" style="margin-top:clamp(36px,6vw,72px)" data-reveal>
@@ -391,5 +461,6 @@
 <script src="assets/js/px.js" defer></script>
 <script src="assets/js/motion.js" defer></script>
 <script src="assets/js/hero-bg.js" defer></script>
+<script src="assets/js/hero-dial.js" defer></script>
 </body>
 </html>
