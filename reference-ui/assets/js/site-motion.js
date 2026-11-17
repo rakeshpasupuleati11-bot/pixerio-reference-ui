@@ -146,7 +146,9 @@
     b.className = 'build-stamp';
     b.style.cssText = 'font-family:var(--mono);font-size:9px;letter-spacing:.14em;' +
       'text-transform:uppercase;opacity:.45;margin-left:12px;white-space:nowrap';
-    b.textContent = 'build 20261117n';
+    var lk = document.querySelector('link[href*="site.css?v="]');
+    var ver = lk ? (lk.getAttribute('href').split('v=')[1] || '') : '';
+    b.textContent = 'build ' + (ver || 'dev');
     foot.appendChild(b);
   }
 
