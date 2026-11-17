@@ -1,0 +1,38 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Publish to GitHub (end of day)",
+      "type": "shell",
+      "command": "cmd",
+      "args": ["/c", "publish.cmd", "${input:publishMessage}"],
+      "options": { "cwd": "${workspaceFolder}", "env": { "PUBLISH_NO_PAUSE": "1" } },
+      "group": { "kind": "build", "isDefault": true },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true,
+        "focus": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Preview site (localhost:5500)",
+      "type": "shell",
+      "command": "python",
+      "args": ["-m", "http.server", "5500", "--bind", "127.0.0.1"],
+      "options": { "cwd": "${workspaceFolder}/reference-ui" },
+      "isBackground": true,
+      "presentation": { "reveal": "always", "panel": "dedicated", "clear": true },
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "publishMessage",
+      "type": "promptString",
+      "description": "What did you change today?",
+      "default": "Daily work"
+    }
+  ]
+}
