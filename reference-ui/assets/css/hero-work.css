@@ -1,0 +1,73 @@
+/* ==========================================================================
+   Hero work wall — "show the work, name the service"
+   The hero media becomes a full-size cycler of real Pixerio projects: each
+   slide carries the service it belongs to, the promise that service makes,
+   and the project it came from. Six labelled tabs let the visitor drive it.
+   No JS: the first slide and all six tabs are visible and readable.
+   Motion contract: freezes on html[data-motion="paused"], under
+   prefers-reduced-motion, when the pointer is over it, and off screen.
+   ========================================================================== */
+.works{position:relative;border-radius:var(--r-lg);overflow:hidden;
+  border:1px solid var(--line);background:var(--navy,#12324A)}
+.works:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+
+.works__stage{position:relative;aspect-ratio:4/3;overflow:hidden}
+.works__slides{list-style:none;margin:0;padding:0;position:absolute;inset:0}
+.works__slide{position:absolute;inset:0;opacity:0;transition:opacity .9s var(--ease);
+  pointer-events:none}
+.works__slide[data-on="true"]{opacity:1;pointer-events:auto}
+.works__slide picture,.works__slide img{display:block;width:100%;height:100%}
+.works__slide img{object-fit:cover;transform:scale(1.04);
+  transition:transform 7s linear}
+.works__slide[data-on="true"] img{transform:scale(1.1)}
+@media (prefers-reduced-motion:reduce){
+  .works__slide img{transform:none;transition:none}
+}
+/* read the image as a surface for the type, not a photo to look at first */
+.works__stage::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to top,rgba(5,23,28,.90) 0%,rgba(5,23,28,.55) 38%,rgba(5,23,28,.10) 72%,transparent 100%)}
+
+.works__copy{position:absolute;left:0;right:0;bottom:0;z-index:2;
+  padding:clamp(16px,2.4vw,30px);max-width:44ch}
+.works__kick{margin:0 0 8px;font-family:var(--mono);font-size:.66rem;letter-spacing:.13em;
+  text-transform:uppercase;color:rgba(255,255,255,.72)}
+.works__title{margin:0;font-size:clamp(1.3rem,2.1vw,1.85rem);line-height:1.12;
+  letter-spacing:-.015em;color:#fff}
+.works__promise{margin:8px 0 0;font-size:.9rem;line-height:1.5;color:rgba(255,255,255,.82)}
+.works__meta{margin:8px 0 0;font-size:.74rem;line-height:1.4;color:rgba(255,255,255,.60)}
+.works__meta[hidden]{display:none}
+.works__cta{display:inline-flex;align-items:center;gap:7px;margin-top:12px;
+  font-size:.78rem;font-weight:600;color:#fff;text-decoration:none;
+  border-bottom:1px solid rgba(255,255,255,.45);padding-bottom:2px;
+  transition:border-color .3s var(--ease),gap .3s var(--ease)}
+.works__cta::after{content:"\2192";font-size:.9em}
+.works__cta:hover,.works__cta:focus-visible{border-color:#fff;gap:11px}
+
+.works__bar{position:absolute;left:0;right:0;bottom:0;height:2px;z-index:3;
+  background:rgba(255,255,255,.14)}
+.works__bar i{display:block;height:100%;width:0;background:var(--cyan);
+  transition:width 5s linear}
+.works__bar i[data-run="true"]{width:100%}
+@media (prefers-reduced-motion:reduce){.works__bar i{transition:none}}
+
+/* tabs */
+.works__tabs{list-style:none;margin:0;padding:10px;display:flex;gap:6px;
+  overflow-x:auto;background:rgba(255,255,255,.9);scrollbar-width:none}
+.works__tabs::-webkit-scrollbar{display:none}
+.works__tab{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;
+  padding:9px 13px;border:1px solid var(--line);border-radius:999px;
+  background:#fff;color:var(--navy);cursor:pointer;
+  font:inherit;font-size:.8rem;font-weight:600;letter-spacing:-.01em;
+  transition:background .35s var(--ease),color .35s var(--ease),border-color .35s var(--ease)}
+.works__tab:hover{border-color:rgba(33,127,195,.45)}
+.works__tabnum{font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;
+  color:var(--muted-2);transition:color .35s var(--ease)}
+.works__tab[aria-selected="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.works__tab[aria-selected="true"] .works__tabnum{color:rgba(255,255,255,.65)}
+
+@media (max-width:720px){
+  .works__stage{aspect-ratio:3/2}
+  .works__copy{padding:16px 16px 22px}
+  .works__promise{font-size:.85rem}
+}
+@media print{.works{display:none}}
