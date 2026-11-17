@@ -63,44 +63,7 @@
 
   <!-- HERO -->
   <section class="wrap page-head" style="border-bottom:0">
-    <div class="hero-motion" aria-hidden="true">
-      <span class="hero-motion__sweep"></span>
-      <span class="hero-motion__prism"></span>
-      <svg class="hero-motion__rings" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-        <circle class="hm-ring hm-ring--1" cx="300" cy="300" r="150"/>
-        <circle class="hm-ring hm-ring--2" cx="300" cy="300" r="214"/>
-        <circle class="hm-dots" cx="300" cy="300" r="252"/>
-        <circle class="hm-ring hm-ring--3" cx="300" cy="300" r="286"/>
-        <g class="hm-orbit"><circle class="hm-node" cx="300" cy="86" r="5"/></g>
-        <g class="hm-orbit hm-orbit--2"><circle class="hm-node hm-node--teal" cx="514" cy="300" r="4"/></g>
-      </svg>
-
-      <!-- six services on a hexagonal drum: readable at rest, one turn at a time -->
-      <div class="hero-prism">
-        <div class="hero-prism__drum">
-          <div class="hero-prism__face" style="--i:0">
-            <span class="hero-prism__n">01</span><b>3D &amp; immersive</b><em>spaces before they exist</em>
-          </div>
-          <div class="hero-prism__face" style="--i:1">
-            <span class="hero-prism__n">02</span><b>Digital platforms</b><em>tools, not brochures</em>
-          </div>
-          <div class="hero-prism__face" style="--i:2">
-            <span class="hero-prism__n">03</span><b>Video &amp; motion</b><em>the 30-second version</em>
-          </div>
-          <div class="hero-prism__face" style="--i:3">
-            <span class="hero-prism__n">04</span><b>Brand &amp; design</b><em>one identity, everywhere</em>
-          </div>
-          <div class="hero-prism__face" style="--i:4">
-            <span class="hero-prism__n">05</span><b>Learning</b><em>training that scales</em>
-          </div>
-          <div class="hero-prism__face" style="--i:5">
-            <span class="hero-prism__n">06</span><b>Search &amp; marketing</b><em>found by intent</em>
-          </div>
-        </div>
-        <div class="hero-prism__dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-        <p class="hero-prism__cap"><span>Six services</span><span>·</span><span>one partner</span></p>
-      </div>
-    </div>
+    <canvas class="hero-bg" id="hero-bg" aria-hidden="true"></canvas>
     <div class="crumbs"><a href="index.html">Home</a><span>/</span><span>Creative and digital services</span></div>
     <h1 data-split>Ideas are everywhere.<br>We make them <em>matter</em>.</h1>
     <p class="lead">Six services, each with its own buyer, under one partner in Bengaluru. We design it, build it, and stay until it works where it gets used.</p>
@@ -426,5 +389,7 @@
 </footer>
 
 <script src="assets/js/px.js" defer></script>
+<script src="assets/js/motion.js" defer></script>
+<script src="assets/js/hero-bg.js" defer></script>
 </body>
 </html>

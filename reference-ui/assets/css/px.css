@@ -1193,114 +1193,67 @@ html,body{overflow-x:clip}
 @media print{.quote-tab{display:none}}
 
 /* ==========================================================================
-   v2.6 — hero motion: a slow prism/orbit piece, drawn in SVG + CSS
-   No video file needed, nothing downloads, and it stops on the existing
-   "Pause motion" control and on prefers-reduced-motion. Transforms and opacity
-   only, six moving layers, no filters or blur.
+   v2.8 — hero atmosphere: a live generative background behind the page head
+   Replaces the v2.6/v2.7 prism drum (rejected at review). Three renderers
+   live in assets/js/hero-bg.js (3D silk mesh · ink bloom · flow field); the
+   MODE constant at the top of that file picks one. Nothing downloads, and it
+   freezes on the "Pause motion" control and under prefers-reduced-motion.
    ========================================================================== */
-.hero-motion{position:absolute;top:-4%;right:-6%;width:min(58vw,720px);aspect-ratio:1;
-  z-index:0;pointer-events:none;
-  -webkit-mask-image:radial-gradient(closest-side,#000 58%,transparent 100%),linear-gradient(to right,transparent 4%,#000 34%);
-  -webkit-mask-composite:source-in;
-  mask-image:radial-gradient(closest-side,#000 58%,transparent 100%),linear-gradient(to right,transparent 4%,#000 34%);
-  mask-composite:intersect}
-.hero-motion__rings{width:100%;height:100%;overflow:visible;
-  animation:hm-spin 200s linear infinite;transform-origin:50% 50%}
-.hm-ring{fill:none;stroke:rgba(33,127,195,.26);stroke-width:1}
-.hm-ring--1{stroke:rgba(0,179,189,.30)}
-.hm-ring--2{stroke:rgba(33,127,195,.20);stroke-dasharray:2 6}
-.hm-ring--3{stroke:rgba(18,50,74,.14)}
-.hm-dots{fill:none;stroke:rgba(33,127,195,.34);stroke-width:2.5;stroke-dasharray:1.5 15;stroke-linecap:round;
-  animation:hm-counter 90s linear infinite;transform-origin:50% 50%}
-.hm-orbit{animation:hm-spin 36s linear infinite;transform-origin:300px 300px}
-.hm-orbit--2{animation:hm-spin 58s linear infinite reverse;transform-origin:300px 300px}
-.hm-node{fill:#E0244F;opacity:.55}
-.hm-node--teal{fill:#00B3BD;opacity:.6}
-.hero-motion__prism{position:absolute;inset:12%;border-radius:50%;
-  background:conic-gradient(from 0deg,rgba(0,179,189,.16),rgba(48,192,240,.12) 18%,rgba(255,255,255,0) 34%,
-    rgba(224,36,79,.10) 58%,rgba(255,255,255,0) 72%,rgba(73,173,72,.10) 86%,rgba(0,179,189,.16));
-  animation:hm-spin 70s linear infinite}
-.hero-motion__sweep{position:absolute;inset:0;border-radius:50%;
-  background:linear-gradient(100deg,transparent 38%,rgba(255,255,255,.55) 50%,transparent 62%);
-  animation:hm-sweep 16s ease-in-out infinite;opacity:.6}
-.hm-spark{position:absolute;width:6px;height:6px;border-radius:50%;background:rgba(33,127,195,.5)}
-.hm-spark--1{top:26%;left:22%;animation:hm-float 19s ease-in-out infinite}
-.hm-spark--2{top:62%;left:38%;width:4px;height:4px;background:rgba(0,179,189,.6);animation:hm-float 23s ease-in-out infinite reverse}
-.hm-spark--3{top:44%;left:76%;width:3px;height:3px;background:rgba(224,36,79,.5);animation:hm-float 27s ease-in-out infinite}
-@keyframes hm-spin{to{transform:rotate(360deg)}}
-@keyframes hm-counter{to{transform:rotate(-360deg)}}
-@keyframes hm-sweep{0%,100%{transform:rotate(-8deg);opacity:.35}50%{transform:rotate(8deg);opacity:.7}}
-@keyframes hm-float{0%,100%{transform:translate(0,0);opacity:.35}50%{transform:translate(14px,-18px);opacity:.85}}
-
-html[data-motion="paused"] .hero-motion *{animation-play-state:paused !important}
-@media (prefers-reduced-motion:reduce){.hero-motion{display:none}}
-@media (max-width:1079px){.hero-motion{display:none}}
+.page-head{isolation:isolate}
+/* the atmosphere ring motif would double up with the live surface */
+body[data-page="index.html"] .page-head::after{
+  background:radial-gradient(58ch 42vh at 8% 104%,rgba(0,179,189,.15),transparent 72%) 0 100%/100% 100% no-repeat}
+.hero-bg{position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:100vw;height:min(88vh,880px);z-index:-1;pointer-events:none;
+  -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 60%,transparent 100%);
+  mask-image:linear-gradient(to bottom,#000 0%,#000 60%,transparent 100%)}
+@media (max-width:720px){.hero-bg{height:min(74vh,640px)}}
+@media (prefers-reduced-motion:reduce){.hero-bg{opacity:.9}}
+@media print{.hero-bg{display:none}}
 
 /* ==========================================================================
-   v2.7 — the hero prism: six services on a hexagonal drum
-   The mark is a faceted solid and the copy says six services under one partner,
-   so the hero turns that into an object: six glass panels, one per service,
-   square-on at rest for readability, advancing one face every five seconds.
-   Backfaces are hidden so type never reads mirrored. aria-hidden, pauses with
-   the motion toggle, hidden under 1080px and with reduced motion.
+   v3.0 — the motion pass: entrance, pointer light, hover micro-motion
+   v1.7 held the page still on purpose. This adds movement back in one voice:
+   slow, small, and physical. Every rule is transform/opacity only, is killed by
+   html[data-motion="paused"] (the site-wide rule above) and by reduced motion.
    ========================================================================== */
-.hero-motion{-webkit-mask-image:none;mask-image:none}
-.hero-motion__rings,.hero-motion__sweep{
-  -webkit-mask-image:radial-gradient(closest-side,#000 62%,transparent 100%);
-  mask-image:radial-gradient(closest-side,#000 62%,transparent 100%)}
-.hero-motion__rings{opacity:.42}
-.hero-motion__prism{opacity:.42}
 
-.hero-prism{--face:clamp(172px,15.6vw,210px);--faceh:calc(var(--face) * 1.3);
-  --r:calc(var(--face) * .866);
-  position:absolute;right:17.5%;top:23%;width:var(--face);height:var(--faceh);
-  perspective:1600px;transform-style:preserve-3d}
-.hero-prism::before{content:"";position:absolute;left:50%;top:48%;width:240%;height:240%;
-  transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;
-  background:radial-gradient(circle,rgba(235,47,91,.09),rgba(48,192,240,.07) 44%,transparent 66%)}
-.hero-prism__drum{position:absolute;inset:0;transform-style:preserve-3d;
-  animation:drum-turn 30s cubic-bezier(.76,0,.24,1) infinite}
-.hero-prism__face{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;gap:7px;
-  padding:16px 17px 18px;border-radius:12px;overflow:hidden;
-  background:linear-gradient(155deg,#FFFFFF,#F5FAFC);
-  border:1px solid rgba(18,50,74,.18);
-  box-shadow:0 30px 60px -34px rgba(18,50,74,.55),0 2px 6px rgba(18,50,74,.07),inset 0 1px 0 #FFFFFF;
-  transform:rotateY(calc(var(--i) * 60deg)) translateZ(var(--r));
-  backface-visibility:hidden;-webkit-backface-visibility:hidden}
-.hero-prism__face::before{content:"";position:absolute;left:0;top:0;height:3px;width:100%;background:var(--hue);opacity:.9}
-.hero-prism__face::after{content:"";position:absolute;right:-40px;bottom:-50px;width:130px;height:130px;border-radius:50%;
-  background:radial-gradient(circle,var(--hue-soft),transparent 68%)}
-.hero-prism__n{font-family:var(--mono);font-size:.56rem;letter-spacing:.16em;color:var(--hue-ink);opacity:.9}
-.hero-prism__face b{font-size:clamp(.94rem,1.08vw,1.06rem);font-weight:500;letter-spacing:-.015em;color:var(--on-paper);line-height:1.22}
-.hero-prism__face em{font-style:normal;font-size:.75rem;line-height:1.35;color:#2E5560}
-.hero-prism__face:nth-child(1){--hue:#00B3BD;--hue-ink:#007E86;--hue-soft:rgba(0,179,189,.16)}
-.hero-prism__face:nth-child(2){--hue:#2078C0;--hue-ink:#175C95;--hue-soft:rgba(32,120,192,.14)}
-.hero-prism__face:nth-child(3){--hue:#E0244F;--hue-ink:#B3123F;--hue-soft:rgba(224,36,79,.12)}
-.hero-prism__face:nth-child(4){--hue:#49AD48;--hue-ink:#2E7C2D;--hue-soft:rgba(73,173,72,.14)}
-.hero-prism__face:nth-child(5){--hue:#F09840;--hue-ink:#A9600F;--hue-soft:rgba(240,152,64,.16)}
-.hero-prism__face:nth-child(6){--hue:#30C0F0;--hue-ink:#137CA4;--hue-soft:rgba(48,192,240,.16)}
-.hero-prism__dots{position:absolute;left:50%;bottom:-32px;transform:translateX(-50%);
-  display:flex;gap:9px;align-items:center}
-.hero-prism__dots i{width:6px;height:6px;border-radius:50%;background:rgba(18,50,74,.22);
-  animation:dot-on 30s linear infinite}
-.hero-prism__dots i:nth-child(1){animation-delay:0s}
-.hero-prism__dots i:nth-child(2){animation-delay:-5s}
-.hero-prism__dots i:nth-child(3){animation-delay:-10s}
-.hero-prism__dots i:nth-child(4){animation-delay:-15s}
-.hero-prism__dots i:nth-child(5){animation-delay:-20s}
-.hero-prism__dots i:nth-child(6){animation-delay:-25s}
-@keyframes dot-on{0%,11%{background:#E0244F;transform:scale(1.45)}
-  14%,100%{background:rgba(18,50,74,.22);transform:scale(1)}}
-.hero-prism__cap{position:absolute;left:50%;bottom:-58px;transform:translateX(-50%);margin:0;
-  display:flex;gap:8px;white-space:nowrap;font-family:var(--mono);font-size:.6rem;
-  letter-spacing:.18em;text-transform:uppercase;color:var(--on-paper-muted);opacity:.9}
-@keyframes drum-turn{
-  0%,13.4%{transform:rotateY(0deg)}
-  16.667%,30.1%{transform:rotateY(-60deg)}
-  33.333%,46.8%{transform:rotateY(-120deg)}
-  50%,63.4%{transform:rotateY(-180deg)}
-  66.667%,80.1%{transform:rotateY(-240deg)}
-  83.333%,96.8%{transform:rotateY(-300deg)}
-  100%{transform:rotateY(-360deg)}
-}
-html[data-motion="paused"] .hero-prism__drum,html[data-motion="paused"] .hero-prism__dots i{animation-play-state:paused}
+/* the live surface fades in once the first frame is painted */
+.hero-bg{opacity:0;transition:opacity 1.4s var(--ease)}
+.hero-bg.is-live{opacity:1}
+@media (prefers-reduced-motion:reduce){.hero-bg{opacity:1;transition:none}}
+
+/* entrance choreography under the headline */
+.js .page-head .crumbs,.js .page-head .lead,.js .page-head .hero__actions{
+  opacity:0;transform:translateY(14px);
+  transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.js.is-ready .page-head .crumbs{opacity:1;transform:none;transition-delay:.10s}
+.js.is-ready .page-head .lead{opacity:1;transform:none;transition-delay:.22s}
+.js.is-ready .page-head .hero__actions{opacity:1;transform:none;transition-delay:.34s}
+@media (prefers-reduced-motion:reduce){
+  .js .page-head .crumbs,.js .page-head .lead,.js .page-head .hero__actions{
+    opacity:1;transform:none;transition:none}}
+
+/* magnetic controls: the pull is set by JS, the rest by CSS */
+.btn,.header-cta{will-change:transform}
+.btn__label{transition:transform .45s var(--ease)}
+.btn:hover .btn__label{transform:translateX(3px)}
+
+/* card icon lifts a little on hover */
+.card__icon{transition:transform .5s var(--ease)}
+.card:hover .card__icon{transform:translateY(-3px) rotate(-4deg)}
+
+/* photography: parallax offset (--py, set by motion.js) with a hover push */
+.tile picture{display:block;overflow:hidden;border-radius:inherit}
+.tile img,.feature__media img{transform:translate3d(0,var(--py,0px),0) scale(1.035);
+  transition:transform .9s var(--ease)}
+.tile:hover img{transform:translate3d(0,var(--py,0px),0) scale(1.075)}
+.feature__media:hover img{transform:translate3d(0,var(--py,0px),0) scale(1.06)}
+@media (hover:none){
+  .tile img,.feature__media img{transform:none}
+  .tile:hover img,.feature__media:hover img{transform:none}}
+
+/* one primary action per screen: the floating quote tab stands down over the hero */
+.quote-tab{transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.quote-tab.is-quiet{opacity:0;transform:translateY(10px);pointer-events:none}
+@media print{.quote-tab{display:none}}

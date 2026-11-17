@@ -37,7 +37,10 @@ only) and green on white is 2.86, so green is never set as text on white. All fi
 | `assets/css/px.css` | the whole design system: tokens, chrome, 33 component patterns, responsive rules |
 | `assets/js/px.js` | entrance, masked line reveals, scroll reveals, counters, magnetic controls, cursor, ribbon loop, nav, persisted motion toggle |
 | `px_apply.py` | applies the chrome (head assets, navigation, ambient layers, footer wordmark, page numeral, script) to every page; idempotent |
+| `assets/js/hero-bg.js` | home hero background: a live reel of the six services, plus four alternates (`mesh`, `rays`, `ink`, `flow`) chosen by the `MODE` constant |
+| `assets/js/motion.js` | the v3 motion pass: entrance choreography, magnetic controls, photography parallax, quote tab stand-down |
 | `prototype/index-v1.7-original.html` | the untouched pre-v2.0 homepage, kept for diffing |
+| `prototype/hero-lab.html` | the three hero backgrounds side by side, switchable, for review |
 
 `system.css`, `hero-belt.css`, `app.js` and `hero-belt.js` are no longer referenced by any
 page; they are left on disk as the v1.2 record.
@@ -180,8 +183,38 @@ evidence over adjectives, so the copy states outcomes instead.
 | Final CTA | One enquiry action, in blue |
 | Footer | Deep navy, same links as the header |
 
-The hero is a **3D carousel of glass service cards** over a brand-coloured light ribbon —
-CSS 3D only, no canvas, no WebGL, no JavaScript. See section 10.
+The home hero carries a **live reel of the six services** instead of an ornament. Six tiles sit
+on the right as a 3x2 wall — 3D and immersive, digital platforms, video and motion, brand and
+design, learning, search and marketing — each one running its own small animation of that
+discipline: a turning wireframe solid, a browser laying out blocks, a film strip with a playhead,
+an Aa specimen with orbiting dots, a graduation cap over a filling checklist, a rising bar chart
+under a magnifier. One tile at a time is live (hue wash, longer rule, lifted shadow), the rest
+wait their turn. The wall is captioned `SIX SERVICES · ONE PARTNER · BENGALURU`, so the
+background states the offer rather than decorating it. Below 860px it stands down and the
+services section below carries the same six names.
+
+Five renderers ship in the same file, chosen by the `MODE` constant at the top of
+`assets/js/hero-bg.js`: `reel` (shipped), `mesh` (a sculpted 3D silk sheet), `rays` (six
+labelled hairlines of light crossing the paper into a faceted hexagonal core), `ink` (a marbled
+WebGL wash) and `flow` (a hairline flow field). Nothing downloads — no video, no image, no
+library.
+
+The layer paints at 30fps and only while the hero is on screen; it holds a static frame under
+`prefers-reduced-motion` and when the header's "Pause motion" control is pressed, and the
+atmosphere ring motif is suppressed on the home page so the two systems never double up.
+
+Scroll couples to it: the sheet lifts 26px and its crest lines brighten as you leave the fold,
+and scroll velocity swells the drift for a moment before it settles. A soft light follows the
+cursor across the sheet. Four renderers ship in the one file — `mesh` (shipped), `rays` (six
+labelled hairlines of light crossing the paper into one hexagonal core: the six-service story
+drawn rather than written), `ink` (a marbled WebGL wash) and `flow` (a hairline flow field).
+`assets/js/hero-bg.js` exposes `HeroBg.step(seconds)` so the pause gate can be verified
+without a browser animation clock.
+
+**Motion beyond the hero (v3.0).** Entrance choreography lifts the crumbs, lead and actions in
+order; controls pull up to 6px toward the pointer; photography carries a shallow 14px parallax;
+the floating quote tab stands down while the hero CTA is on screen, so each screen has one
+primary action. Every rule is transform/opacity only and dies on the "Pause motion" control.
 
 ---
 

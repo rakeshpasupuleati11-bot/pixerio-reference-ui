@@ -120,6 +120,10 @@ def transform(html: str, page: str) -> str:
     html = re.sub(r'<script src="assets/js/(app|hero-belt)\.js" defer></script>\s*', "", html)
     if 'assets/js/px.js' not in html:
         html = html.replace("</body>", '<script src="assets/js/px.js" defer></script>\n</body>', 1)
+    if 'assets/js/motion.js' not in html:
+        html = html.replace("</body>", '<script src="assets/js/motion.js" defer></script>\n</body>', 1)
+    if 'assets/js/hero-bg.js' not in html:
+        html = html.replace("</body>", '<script src="assets/js/hero-bg.js" defer></script>\n</body>', 1)
 
     # 6. first paragraph of a page head becomes the lead
     html = re.sub(r'(</h1>\s*)<p>', r'\1<p class="lead">', html, count=1)
