@@ -1738,3 +1738,67 @@ body{background:
 .pending::before{content:"";width:5px;height:5px;border-radius:50%;background:#C97A12}
 .quote blockquote{position:relative}
 .quote{border:1px dashed rgba(18,50,74,.18);border-radius:12px;padding:18px}
+
+/* ---------- v10: real surface design, not just a grid ---------- */
+
+/* diagonal pinstripe band — the motif from the reference they liked */
+.stripe-band{position:relative;padding:clamp(26px,4vw,54px) 0;overflow:hidden;
+  background:#12324A}
+.stripe-band::before{content:"";position:absolute;inset:-40%;
+  background-image:repeating-linear-gradient(115deg,rgba(255,255,255,.06) 0 1px,transparent 1px 9px);
+  pointer-events:none}
+.stripe-band__pill{position:relative;z-index:1;max-width:var(--maxw,1360px);margin:0 auto;
+  background:#fff;border-radius:999px;padding:clamp(18px,2.4vw,30px) clamp(22px,3.4vw,48px);
+  box-shadow:0 30px 60px -40px rgba(0,0,0,.6);color:var(--navy,#12324A)}
+.stripe-band__pill p{margin:0;font-size:clamp(1rem,1.5vw,1.3rem);letter-spacing:-.02em;line-height:1.4}
+.stripe-band__pill b{color:var(--brand-teal-text)}
+
+/* soft orbs behind every section on inner pages */
+.page-head::before,.page-head::after,
+.section--grey::after,.section--wash::after,.section--softblue::after{will-change:auto}
+.section--grey,.section--wash,.section--softblue,.section--tight{overflow:hidden}
+
+/* dotted halftone corner — light, but visible */
+.section--wash::after,.section--softblue::after{
+  content:"";position:absolute;width:320px;height:320px;right:-60px;bottom:-80px;
+  background-image:radial-gradient(rgba(18,50,74,.16) 1px,transparent 1px);
+  background-size:14px 14px;pointer-events:none;
+  -webkit-mask-image:radial-gradient(circle,#000 20%,transparent 72%);
+  mask-image:radial-gradient(circle,#000 20%,transparent 72%)}
+
+/* big page numeral watermark on inner pages */
+.page-idx{position:absolute;right:clamp(10px,4vw,60px);top:clamp(40px,6vw,80px);
+  font-size:clamp(7rem,18vw,16rem);line-height:.8;font-weight:500;letter-spacing:-.05em;
+  color:transparent;-webkit-text-stroke:1px rgba(18,50,74,.14);pointer-events:none;z-index:0}
+
+/* chapter label used on inner pages too */
+.sm-chapter{display:inline-flex;align-items:center;gap:9px;margin:0 0 16px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--brand-teal-text)}
+.sm-chapter::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--brand-teal)}
+
+@media (max-width:820px){
+  .page-idx{font-size:clamp(5rem,22vw,8rem);opacity:.7}
+  .stripe-band__pill{border-radius:22px}
+}
+
+/* work rail: an auto-advancing carousel, not a scroll strip */
+.rail__track{overflow:hidden;scroll-snap-type:none;display:block;position:relative;
+  height:clamp(240px,26vw,360px);cursor:default}
+.rail__slide{position:absolute;inset:0;opacity:0;transform:scale(.98);
+  transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1);
+  display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,1.4vw,16px)}
+.rail__slide.on{opacity:1;transform:none}
+.rail__slide figure{margin:0;border-radius:14px;overflow:hidden;border:1px solid rgba(18,50,74,.12);
+  background:#fff}
+.rail__slide img{width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform .8s cubic-bezier(.16,1,.3,1)}
+.rail__slide figure:hover img{transform:scale(1.05)}
+.rail__slide figcaption{padding:10px 12px;font-family:var(--mono);font-size:9.5px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--brand-teal-text)}
+@media (max-width:760px){.rail__slide{grid-template-columns:1fr 1fr}}
+
+.rail__nav{display:flex;gap:8px;align-items:center}
+.rail__dot{width:22px;height:4px;border:0;border-radius:3px;padding:0;cursor:pointer;
+  background:rgba(18,50,74,.16);transition:background .3s ease,width .3s ease}
+.rail__dot.on{background:var(--brand-teal);width:36px}

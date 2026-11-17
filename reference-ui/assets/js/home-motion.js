@@ -105,26 +105,55 @@
     }
   });
 
-  /* ---------- horizontal rail: drag + arrow buttons ---------- */
+  /* ---------- work rail: auto-advancing carousel (no scrolling) ---------- */
   document.querySelectorAll('.rail').forEach(function (rail) {
     var track = rail.querySelector('.rail__track');
-    var prev = rail.querySelector('[data-rail-prev]');
-    var next = rail.querySelector('[data-rail-next]');
     if (!track) return;
-    var step = function () { return Math.max(260, track.clientWidth * 0.8); };
-    if (prev) prev.addEventListener('click', function () { track.scrollBy({ left: -step(), behavior: 'smooth' }); });
-    if (next) next.addEventListener('click', function () { track.scrollBy({ left: step(), behavior: 'smooth' }); });
-    var down = false, sx = 0, sl = 0;
-    track.addEventListener('pointerdown', function (e) {
-      down = true; sx = e.clientX; sl = track.scrollLeft; track.classList.add('dragging');
-    });
-    track.addEventListener('pointermove', function (e) {
-      if (!down) return;
-      track.scrollLeft = sl - (e.clientX - sx);
-    });
-    ['pointerup', 'pointerleave', 'pointercancel'].forEach(function (ev) {
-      track.addEventListener(ev, function () { down = false; track.classList.remove('dragging'); });
-    });
+    var figs = Array.prototype.slice.call(track.querySelectorAll('.rail__item'));
+    if (figs.length < 2) return;
+    var per = 3, slides = [], i;
+    for (i = 0; i < figs.length; i += per) {
+      var g = document.createElement('div');
+      g.className = 'rail__slide' + (i === 0 ? ' on' : '');
+      figs.slice(i, i + per).forEach(function (f) { g.appendChild(f); });
+      track.appendChild(g);
+      slides.push(g);
+    }
+    var cur = 0, timer = null, hold = false;
+    function show(n) {
+      cur = (n + slides.length) % slides.length;
+      slides.forEach(function (sl, k) { sl.classList.toggle('on', k === cur); });
+      var dots = rail.querySelectorAll('.rail__dot');
+      Array.prototype.forEach.call(dots, function (d, k) { d.classList.toggle('on', k === cur); });
+    }
+    function start() {
+      stop();
+      if (hold || still()) return;
+      timer = setInterval(function () { show(cur + 1); }, 5000);
+    }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+
+    // dots
+    var dotBox = rail.querySelector('.rail__nav');
+    if (dotBox) {
+      dotBox.innerHTML = '';
+      slides.forEach(function (_, k) {
+        var d = document.createElement('button');
+        d.type = 'button'; d.className = 'rail__dot' + (k === 0 ? ' on' : '');
+        d.setAttribute('aria-label', 'Work set ' + (k + 1));
+        d.addEventListener('click', function () { show(k); start(); });
+        dotBox.appendChild(d);
+      });
+    }
+    rail.addEventListener('mouseenter', function () { hold = true; stop(); });
+    rail.addEventListener('mouseleave', function () { hold = false; start(); });
+    rail.addEventListener('focusin', function () { hold = true; stop(); });
+    rail.addEventListener('focusout', function () { hold = false; start(); });
+    if (window.MutationObserver) {
+      new MutationObserver(function () { still() ? stop() : start(); })
+        .observe(document.documentElement, { attributes: true, attributeFilter: ['data-motion'] });
+    }
+    show(0); start();
   });
 
   /* ---------- clip reveal ---------- */

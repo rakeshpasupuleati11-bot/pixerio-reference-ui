@@ -122,6 +122,22 @@
     else if (t === 'H3' && !seenH2) h.setAttribute('aria-level', '2');
   });
 
+  /* inner pages get the same numbered chapters the home page has */
+  if (document.body.getAttribute('data-page') !== 'index.html') {
+    var secs = Array.prototype.slice.call(document.querySelectorAll('main > section'));
+    secs.forEach(function (sec, i) {
+      if (sec.classList.contains('hx') || sec.classList.contains('page-head')) return;
+      var wrap = sec.querySelector('.wrap') || sec;
+      if (wrap.querySelector('.sm-chapter')) return;
+      var h = wrap.querySelector('h2');
+      var label = h ? h.textContent.trim().split(/[.,]/)[0].slice(0, 34) : 'Section ' + (i + 1);
+      var el = document.createElement('p');
+      el.className = 'sm-chapter';
+      el.textContent = ('0' + (i + 1)).slice(-2) + ' · ' + label;
+      wrap.insertBefore(el, wrap.firstChild);
+    });
+  }
+
   /* BUILD_STAMP — a quiet marker so it is always obvious which build is on screen */
   var foot = document.querySelector('footer .footer__bottom') || document.querySelector('footer');
   if (foot && !document.querySelector('.build-stamp')) {
