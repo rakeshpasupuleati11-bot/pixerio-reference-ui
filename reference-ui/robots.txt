@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rakeshpasupuleati11-bot.github.io/pixerio-reference-ui/reference-ui/sitemap.xml
