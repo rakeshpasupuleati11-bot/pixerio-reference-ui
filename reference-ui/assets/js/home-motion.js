@@ -21,6 +21,9 @@
     if (group && track.children.length < 2) {
       var clone = group.cloneNode(true);
       clone.setAttribute('aria-hidden', 'true');
+      Array.prototype.forEach.call(clone.querySelectorAll('a,button'), function (el) {
+        el.setAttribute('tabindex', '-1');
+      });
       track.appendChild(clone);
     }
   }

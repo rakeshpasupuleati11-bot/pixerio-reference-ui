@@ -51,3 +51,12 @@ html[data-motion="paused"] .spectrum-rule::after{animation-play-state:paused}
   .spectrum-rule::after{display:none}
   body{transition:none;opacity:1!important}
 }
+
+/* meta labels stay legible on small screens (10px uppercase was too small) */
+@media (max-width:820px){
+  .eyebrow,.spine-chapter,.hx__chip,.sq__eyebrow,.footer h3,.footer h4,
+  .works__kick,.mq__item,.hx__rail a,.rail__item span,.sec-head .link{
+    font-size:12px!important;letter-spacing:.10em!important}
+  .page-head .crumbs--chip{font-size:11.5px!important}
+  .story__count,.sq__of{font-size:11.5px!important}
+}

@@ -93,3 +93,11 @@
   .hx__point{animation:none}
   .hx__l>span,.hx__chip,.hx__lead,.hx__acts,.hx__rail{transform:none;opacity:1;transition:none}
 }
+
+/* webgl depth field */
+.hx .gl{position:absolute;inset:-8% -4%;width:108%;height:116%;z-index:-1;pointer-events:none;
+  opacity:0;transition:opacity 1.6s cubic-bezier(.16,1,.3,1);
+  -webkit-mask-image:radial-gradient(120% 90% at 50% 44%,#000 55%,transparent 100%);
+  mask-image:radial-gradient(120% 90% at 50% 44%,#000 55%,transparent 100%)}
+.hx.is-in .gl{opacity:.85}
+@media (prefers-reduced-motion:reduce){.hx .gl{opacity:.5;transition:none}}

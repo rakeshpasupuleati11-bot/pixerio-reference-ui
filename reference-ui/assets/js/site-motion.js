@@ -101,6 +101,27 @@
     }).observe(doc, { attributes: true, attributeFilter: ['data-motion'] });
   }
 
+  /* the fixed quote link needs a landmark around it */
+  var qt = document.querySelector('.quote-tab');
+  if (qt && !qt.closest('.quote-aside')) {
+    var aside = document.createElement('aside');
+    aside.className = 'quote-aside';
+    aside.setAttribute('aria-label', 'Quick enquiry');
+    qt.parentNode.insertBefore(aside, qt);
+    aside.appendChild(qt);
+  }
+
+  /* heading order: an h3 that appears before any h2 is really a level-2
+     heading. Set aria-level so the outline reads correctly without changing
+     the visual size of card titles. */
+  var seenH2 = false;
+  Array.prototype.forEach.call(document.querySelectorAll('h1,h2,h3'), function (h) {
+    var t = h.tagName;
+    if (t === 'H1') seenH2 = false;
+    else if (t === 'H2') seenH2 = true;
+    else if (t === 'H3' && !seenH2) h.setAttribute('aria-level', '2');
+  });
+
   /* BUILD_STAMP — a quiet marker so it is always obvious which build is on screen */
   var foot = document.querySelector('footer .footer__bottom') || document.querySelector('footer');
   if (foot && !document.querySelector('.build-stamp')) {

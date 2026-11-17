@@ -1,0 +1,328 @@
+/* Pixerio bundle - generated from assets/css/src/*.css. Edit the sources. */
+
+/* ---- hero7.css ---- */
+/* ==========================================================================
+   Pixerio — hero v7 "The Depth Line"
+   An original 3D metaphor instead of a glowing orb: six capability panels
+   recede along one axis toward a single point of light — many services,
+   one partner, moving toward an outcome. Real CSS 3D (perspective +
+   translateZ), driven by scroll and pointer. No library, no video.
+   ========================================================================== */
+.hx{position:relative;min-height:min(94vh,900px);display:grid;place-items:center;
+  overflow:hidden;isolation:isolate;
+  --hx-teal:#00B3BD;--hx-cyan:#0497C3;--hx-green:#39B34A;--hx-lime:#B8D550;
+  --hx-amber:#F49C42;--hx-ink:#12324A;--hx-ink2:#2A4A63;
+  padding:clamp(96px,9vw,132px) 0 clamp(40px,5vw,64px)}
+.hx__scene{position:absolute;inset:0;z-index:0;perspective:1100px;perspective-origin:50% 46%;
+  pointer-events:none}
+.hx__world{position:absolute;inset:0;transform-style:preserve-3d;
+  transform:translateZ(0) rotateX(0) rotateY(0);will-change:transform}
+
+.pnl{position:absolute;left:50%;top:50%;width:min(46vw,560px);aspect-ratio:16/10;
+  margin:0;transform-style:preserve-3d;
+  border:1px solid rgba(0,179,189,.34);border-radius:14px;
+  background:linear-gradient(150deg,rgba(255,255,255,.58),rgba(233,247,248,.34));
+  box-shadow:0 30px 90px -70px rgba(0,90,110,.45),inset 0 1px 0 rgba(255,255,255,.7);
+  display:flex;align-items:flex-end;padding:14px 16px;
+  will-change:transform,opacity}
+.pnl::after{content:"";position:absolute;inset:8px;border-radius:9px;
+  border:1px solid rgba(18,50,74,.08);pointer-events:none}
+.pnl b{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--hx-teal);font-weight:500}
+.pnl span{display:block;margin-top:4px;font-size:clamp(.95rem,1.15vw,1.15rem);font-weight:500;
+  letter-spacing:-.015em;color:var(--hx-ink)}
+
+/* the generative surface sits under the corridor, not in front of it */
+.hx .hero-bg{position:absolute;inset:0;width:100%;height:100%;z-index:0;
+  pointer-events:none;opacity:0;transition:opacity 1.4s cubic-bezier(.16,1,.3,1);
+  -webkit-mask-image:radial-gradient(120% 88% at 50% 46%,#000 52%,transparent 100%);
+  mask-image:radial-gradient(120% 88% at 50% 46%,#000 52%,transparent 100%)}
+.hx .hero-bg.is-live{opacity:.42}
+@media (prefers-reduced-motion:reduce){.hx .hero-bg{opacity:.22;transition:none}}
+.hx__point{position:absolute;left:50%;top:46%;width:180px;height:180px;margin:-90px 0 0 -90px;
+  border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(0,179,189,.55),rgba(4,151,195,.22) 42%,transparent 70%);
+  filter:blur(18px);animation:hx-breathe 7s ease-in-out infinite alternate}
+@keyframes hx-breathe{to{transform:scale(1.12);opacity:.75}}
+
+.hx__wrap::before{content:"";position:absolute;z-index:-1;left:50%;top:50%;
+  width:min(88vw,980px);height:min(72vh,620px);transform:translate(-50%,-50%);
+  border-radius:50%;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(255,255,255,.94),rgba(255,255,255,.72) 55%,transparent 78%)}
+.hx__wrap{position:relative;z-index:2;max-width:var(--maxw,1360px);margin:0 auto;
+  padding:0 var(--gutter,32px);text-align:center}
+.hx__chip{display:inline-flex;align-items:center;height:24px;padding:0 10px;border-radius:3px;
+  background:var(--hx-teal);color:#fff;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase}
+.hx h1{margin:22px 0 0;font-weight:500;letter-spacing:-.045em;line-height:.96;
+  color:var(--hx-ink);font-size:clamp(2.6rem,6.4vw,6rem);text-wrap:balance}
+.hx h1 em{font-style:normal;color:var(--hx-cyan)}
+.hx__l{display:block;overflow:hidden;padding-bottom:.08em}
+.hx__l>span{display:block;transform:translateY(112%);
+  transition:transform 1.05s cubic-bezier(.2,.8,.2,1)}
+.hx.is-in .hx__l>span{transform:none}
+.hx.is-in .hx__l:nth-child(2)>span{transition-delay:.08s}
+.hx__lead{margin:20px auto 0;max-width:56ch;font-size:clamp(1rem,1.3vw,1.12rem);
+  line-height:1.6;color:var(--hx-ink2)}
+.hx__acts{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+.hx .btn{background:var(--hx-teal);color:#fff}
+.hx .btn:hover{background:#00a1aa}
+.hx .btn--ghost{background:rgba(255,255,255,.86);color:var(--hx-ink);
+  border:1px solid rgba(0,179,189,.45)}
+.hx__rail{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:6px 0;
+  margin:32px auto 0;padding:16px 0 0;max-width:620px;position:relative}
+.hx__rail::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;border-radius:2px;
+  background:linear-gradient(90deg,var(--hx-teal),var(--hx-cyan),var(--hx-green),var(--hx-lime),var(--hx-amber))}
+.hx__rail li{display:flex;align-items:center}
+.hx__rail li+li::before{content:"";width:1px;height:11px;margin:0 12px;background:rgba(18,50,74,.18)}
+.hx__rail a{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--hx-ink2);text-decoration:none;transition:color .25s ease}
+.hx__rail a:hover{color:var(--hx-teal)}
+
+.hx__chip,.hx__lead,.hx__acts,.hx__rail{opacity:0;transform:translateY(14px);
+  transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+.hx.is-in .hx__chip{opacity:1;transform:none;transition-delay:.06s}
+.hx.is-in .hx__lead{opacity:1;transform:none;transition-delay:.3s}
+.hx.is-in .hx__acts{opacity:1;transform:none;transition-delay:.4s}
+.hx.is-in .hx__rail{opacity:1;transform:none;transition-delay:.5s}
+
+@media (max-width:900px){
+  .hx{min-height:auto;padding-top:96px}
+  .pnl{width:min(78vw,320px);opacity:.5}
+  .hx__scene{perspective:820px}
+  .hx h1{font-size:clamp(2.1rem,9.4vw,3.2rem)}
+}
+@media (prefers-reduced-motion:reduce){
+  .hx__point{animation:none}
+  .hx__l>span,.hx__chip,.hx__lead,.hx__acts,.hx__rail{transform:none;opacity:1;transition:none}
+}
+
+/* webgl depth field */
+.hx .gl{position:absolute;inset:-8% -4%;width:108%;height:116%;z-index:-1;pointer-events:none;
+  opacity:0;transition:opacity 1.6s cubic-bezier(.16,1,.3,1);
+  -webkit-mask-image:radial-gradient(120% 90% at 50% 44%,#000 55%,transparent 100%);
+  mask-image:radial-gradient(120% 90% at 50% 44%,#000 55%,transparent 100%)}
+.hx.is-in .gl{opacity:.85}
+@media (prefers-reduced-motion:reduce){.hx .gl{opacity:.5;transition:none}}
+
+/* ---- home-motion.css ---- */
+/* ==========================================================================
+   Pixerio — home motion v6
+   Techniques taken from what motion-site galleries actually ship:
+     1. marquee-x          a looping service band
+     2. gradient-shift     the brand spectrum drifts behind it
+     3. shimmer            a slow sheen along the spectrum rules
+     4. parallax-fade-up   sections ride in with scroll, not just on load
+   All transform/opacity, all frozen by the site motion toggle,
+   all off under prefers-reduced-motion.
+   ========================================================================== */
+
+/* ---------- 1 + 2: the service band ---------- */
+.mq{position:relative;overflow:hidden;padding:16px 0;margin-top:clamp(30px,4vw,54px);
+  border-block:1px solid rgba(18,50,74,.12);
+  background:linear-gradient(90deg,rgba(0,179,189,.06),rgba(73,173,72,.06),rgba(184,213,80,.06),rgba(244,156,66,.06));
+  background-size:300% 100%;animation:gradient-shift 22s ease-in-out infinite alternate}
+@keyframes gradient-shift{from{background-position:0% 50%}to{background-position:100% 50%}}
+.mq::before,.mq::after{content:"";position:absolute;top:0;bottom:0;width:clamp(40px,8vw,130px);
+  z-index:2;pointer-events:none}
+.mq::before{left:0;background:linear-gradient(to right,#fff,transparent)}
+.mq::after{right:0;background:linear-gradient(to left,#fff,transparent)}
+.mq__track{display:flex;width:max-content;will-change:transform;
+  animation:marquee-x 46s linear infinite}
+.mq:hover .mq__track{animation-play-state:paused}
+.mq__group{display:flex;align-items:center}
+.mq__item{display:inline-flex;align-items:center;gap:clamp(16px,2.2vw,30px);
+  padding-right:clamp(16px,2.2vw,30px);white-space:nowrap;
+  font-family:var(--mono);font-size:clamp(.8rem,1vw,.95rem);letter-spacing:.14em;
+  text-transform:uppercase;color:var(--navy,#12324A);text-decoration:none}
+.mq__item::after{content:"";width:6px;height:6px;border-radius:50%;
+  background:var(--brand-teal);opacity:.8}
+.mq__item:hover{color:var(--brand-teal-text)}
+@keyframes marquee-x{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+
+/* ---------- 3: shimmer on the spectrum rules ---------- */
+.spectrum-rule,.page-head .wrap::after,.hx__rail::before{position:relative;overflow:hidden}
+.spectrum-rule::after,.page-head .wrap::after::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(100deg,transparent 20%,rgba(255,255,255,.85) 50%,transparent 80%);
+  transform:translateX(-120%);animation:shimmer 6.5s ease-in-out infinite}
+@keyframes shimmer{0%{transform:translateX(-120%)}55%{transform:translateX(120%)}100%{transform:translateX(120%)}}
+
+/* ---------- 4: parallax fade-up on sections ---------- */
+[data-parallax]{will-change:transform,opacity}
+
+/* ---------- hero exit while scrolling (no pinning) ---------- */
+.hx__wrap,.hx__orb{will-change:transform,opacity}
+
+/* ---------- stop everything together ---------- */
+html[data-motion="paused"] .mq,
+html[data-motion="paused"] .mq__track,
+html[data-motion="paused"] .spectrum-rule::after,
+html[data-motion="paused"] .page-head .wrap::after::after{animation-play-state:paused}
+
+@media (prefers-reduced-motion:reduce){
+  .mq{animation:none}
+  .mq__track{animation:none}
+  .spectrum-rule::after,.page-head .wrap::after::after{animation:none;display:none}
+  [data-parallax]{transform:none!important;opacity:1!important}
+}
+@media (max-width:720px){
+  .mq__item{font-size:.74rem;letter-spacing:.12em}
+}
+
+/* ---------- scroll progress rail across the top ---------- */
+.sprog{position:fixed;left:0;top:0;height:2px;width:100%;z-index:60;pointer-events:none;
+  background:transparent}
+.sprog i{display:block;height:100%;width:0;transform-origin:left;
+  background:linear-gradient(90deg,var(--brand-teal),var(--brand-cyan),var(--brand-green),var(--brand-lime),var(--brand-amber))}
+
+/* ---------- kinetic type band: two rows running opposite ways ---------- */
+.kin{position:relative;overflow:hidden;padding:clamp(26px,4vw,52px) 0;margin-top:clamp(30px,4vw,56px);
+  border-block:1px solid rgba(18,50,74,.10)}
+.kin__row{display:flex;width:max-content;will-change:transform}
+.kin__row--a{animation:kin-a 40s linear infinite}
+.kin__row--b{animation:kin-b 46s linear infinite;margin-top:6px}
+.kin__w{font-size:clamp(2.4rem,6.4vw,5.6rem);font-weight:500;letter-spacing:-.04em;
+  line-height:.95;padding-right:.28em;white-space:nowrap;color:transparent;
+  -webkit-text-stroke:1px rgba(18,50,74,.28)}
+.kin__w:nth-child(odd){color:rgba(18,50,74,.92);-webkit-text-stroke:0}
+@keyframes kin-a{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+@keyframes kin-b{from{transform:translate3d(-50%,0,0)}to{transform:translate3d(0,0,0)}}
+html[data-motion="paused"] .kin__row{animation-play-state:paused}
+
+/* ---------- horizontal work rail (native scroll, no hijack) ---------- */
+.rail{position:relative;margin-top:clamp(30px,4vw,56px);padding-bottom:10px}
+.rail__head{display:flex;align-items:baseline;justify-content:space-between;gap:20px;
+  flex-wrap:wrap;margin-bottom:16px}
+.rail__head h2{margin:0;font-size:clamp(1.4rem,2.3vw,2rem);letter-spacing:-.03em;color:var(--navy)}
+.rail__nav{display:flex;gap:8px}
+.rail__nav button{width:38px;height:38px;border-radius:50%;border:1px solid rgba(18,50,74,.18);
+  background:#fff;color:var(--navy);font-size:16px;cursor:pointer;
+  transition:background .25s ease,border-color .25s ease,color .25s ease}
+.rail__nav button:hover{background:var(--brand-teal);border-color:var(--brand-teal);color:#fff}
+.rail__track{display:flex;gap:clamp(12px,1.4vw,18px);overflow-x:auto;scroll-snap-type:x mandatory;
+  scrollbar-width:none;padding-bottom:6px;cursor:grab}
+.rail__track::-webkit-scrollbar{display:none}
+.rail__track.dragging{cursor:grabbing;scroll-snap-type:none}
+.rail__item{flex:0 0 clamp(240px,30vw,380px);scroll-snap-align:start;margin:0}
+.rail__item a{display:block;border-radius:14px;overflow:hidden;border:1px solid rgba(18,50,74,.12);
+  background:#fff}
+.rail__item img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;
+  transition:transform .8s cubic-bezier(.16,1,.3,1)}
+.rail__item:hover img{transform:scale(1.045)}
+.rail__item span{display:block;padding:12px 14px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--brand-teal-text)}
+
+/* ---------- clip reveal for photography ---------- */
+/* note: clip-path on the observed element collapses its intersection rect and
+   deadlocks IntersectionObserver, so the reveal runs on transform/opacity and
+   the inner image does the uncover. */
+.clip{opacity:0;transform:translateY(20px);
+  transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+.clip.in{opacity:1;transform:none}
+.clip img{clip-path:inset(0 0 100% 0);transition:clip-path 1s cubic-bezier(.16,1,.3,1) .05s}
+.clip.in img{clip-path:inset(0 0 0 0)}
+@media (prefers-reduced-motion:reduce){
+  .clip,.clip img{clip-path:none;opacity:1;transform:none;transition:none}
+  .kin__row{animation:none}
+}
+
+/* ---- sequence.css ---- */
+/* ==========================================================================
+   Pixerio — the six-service sequence (home, one signature moment)
+   A short pinned passage: as you scroll, the six services step through one at
+   a time with their number, name, promise and one real project. 250vh, not a
+   story — one idea, told cleanly.
+   ========================================================================== */
+.sq{position:relative;height:250vh;background:#fff}
+.sq__stage{position:sticky;top:0;height:100vh;overflow:hidden;display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;
+  gap:clamp(24px,4vw,72px);max-width:var(--maxw,1360px);margin:0 auto;
+  padding:0 var(--gutter,32px)}
+.sq__l{min-width:0}
+.sq__eyebrow{display:inline-flex;align-items:center;height:22px;padding:0 9px;border-radius:3px;
+  background:rgba(0,179,189,.12);color:var(--brand-teal-text);font-family:var(--mono);
+  font-size:10px;letter-spacing:.14em;text-transform:uppercase}
+.sq__num{display:flex;align-items:baseline;gap:10px;font-family:var(--mono);font-size:clamp(3rem,7vw,6rem);line-height:1;color:var(--brand-teal);
+  letter-spacing:-.02em;font-variant-numeric:tabular-nums;margin:10px 0 0}
+.sq__name{margin:8px 0 0;font-size:clamp(1.9rem,4.2vw,3.6rem);font-weight:500;
+  letter-spacing:-.04em;line-height:1.02;color:var(--navy,#12324A)}
+.sq__promise{margin:16px 0 0;max-width:44ch;font-size:clamp(1rem,1.25vw,1.1rem);
+  line-height:1.6;color:var(--ink2,#2A4A63)}
+.sq__link{display:inline-flex;align-items:center;gap:8px;margin-top:22px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--brand-teal-text);text-decoration:none}
+.sq__link svg{width:14px;height:14px;transition:transform .3s cubic-bezier(.16,1,.3,1)}
+.sq__link:hover svg{transform:translateX(4px)}
+.sq__ticks{display:flex;gap:6px;margin-top:26px}
+.sq__ticks i{width:26px;height:2px;border-radius:2px;background:rgba(18,50,74,.16);
+  transition:background .4s ease,width .4s ease}
+.sq__ticks i.on{background:var(--brand-teal);width:44px}
+
+.sq__r{position:relative;aspect-ratio:4/5;max-height:74vh;min-width:0}
+.sq__shot{position:absolute;inset:0;margin:0;border-radius:16px;overflow:hidden;
+  border:1px solid rgba(0,179,189,.28);background:#E9F7F8;
+  opacity:0;transform:scale(1.02);transition:opacity .42s cubic-bezier(.16,1,.3,1),transform .42s cubic-bezier(.16,1,.3,1)}
+.sq__shot.on{z-index:2}
+.sq__shot.on{opacity:1;transform:none;z-index:2}
+.sq__shot img{width:100%;height:100%;object-fit:cover;display:block}
+.sq__shot figcaption{position:absolute;left:0;right:0;bottom:0;padding:14px 16px;
+  font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;
+  color:#fff;background:linear-gradient(to top,rgba(8,26,36,.78),transparent)}
+
+@media (max-width:900px){
+  .sq{height:190vh}
+  .sq__stage{grid-template-columns:1fr;gap:18px;align-content:center;padding-top:20px}
+  .sq__r{aspect-ratio:16/10;order:-1;max-height:36vh;width:100%}
+  .sq__num{font-size:2.4rem}
+  .sq__name{font-size:1.7rem}
+  .sq__promise{font-size:.95rem;max-width:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .sq{height:auto}
+  .sq__stage{position:static;height:auto;display:block;padding:48px var(--gutter,32px)}
+  .sq__shot{position:static;opacity:1;transform:none}
+}
+
+.sq__of{font-family:var(--mono);font-size:clamp(.8rem,1.1vw,1rem);letter-spacing:.12em;
+  color:var(--muted,#52616E);opacity:.75}
+
+/* ---- spine.css ---- */
+/* ==========================================================================
+   Pixerio — story spine (home)
+   Turns the home page into a named story: 01 The studio · 02 What we do ·
+   03 The work · 04 How we work · 05 Start. A fixed chapter marker tracks where
+   you are and lets you jump. Nothing else on the page changes.
+   ========================================================================== */
+.spine{position:fixed;left:22px;bottom:26px;z-index:55;
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:999px;
+  background:rgba(255,255,255,.9);border:1px solid rgba(18,50,74,.14);
+  box-shadow:0 18px 40px -30px rgba(18,50,74,.6);backdrop-filter:blur(10px);
+  color:var(--navy,#12324A)}
+.spine__n{color:var(--brand-teal);font-weight:500}
+.spine__bar{width:56px;height:2px;border-radius:2px;background:rgba(18,50,74,.14);overflow:hidden;
+  position:relative}
+.spine__bar i{position:absolute;left:0;top:0;bottom:0;width:20%;border-radius:2px;
+  background:var(--brand-teal);transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.spine__list{position:fixed;left:22px;bottom:74px;z-index:55;list-style:none;margin:0;padding:0;
+  display:grid;gap:4px;opacity:0;pointer-events:none;
+  transition:opacity .35s ease,transform .35s ease;transform:translateY(6px)}
+.spine:hover+.spine__list,.spine__list:hover,.spine__list:focus-within{opacity:1;pointer-events:auto;transform:none}
+.spine__list li a{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink2,#2A4A63);text-decoration:none;padding:6px 10px;
+  border-radius:6px;background:rgba(255,255,255,.94);border:1px solid rgba(18,50,74,.10)}
+.spine__list li.on a{color:#fff;background:var(--brand-teal);border-color:var(--brand-teal)}
+
+/* the chapter label that opens each block */
+.spine-chapter{display:flex;align-items:center;gap:10px;margin-bottom:14px;
+  font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--brand-teal-text)}
+.spine-chapter b{font-weight:500}
+
+@media (max-width:820px){
+  .spine{left:14px;bottom:14px;padding:8px 10px}
+  .spine__bar{display:none}
+  .spine__list{display:none}
+}
+@media print{.spine,.spine__list,.spine-chapter{display:none}}

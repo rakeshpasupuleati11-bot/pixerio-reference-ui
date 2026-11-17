@@ -36,6 +36,8 @@
   // fixed marker + jump list
   var marker = document.createElement('div');
   marker.className = 'spine';
+  marker.setAttribute('role', 'region');
+  marker.setAttribute('aria-label', 'Reading position');
   marker.innerHTML = '<span class="spine__n">01</span><span class="spine__name">The studio</span>' +
     '<span class="spine__bar"><i></i></span>';
   document.body.appendChild(marker);
@@ -55,7 +57,10 @@
     li.appendChild(a);
     list.appendChild(li);
   });
-  document.body.appendChild(list);
+  var nav = document.createElement('nav');
+  nav.setAttribute('aria-label', 'Chapters');
+  nav.appendChild(list);
+  document.body.appendChild(nav);
 
   var numEl = marker.querySelector('.spine__n');
   var nameEl = marker.querySelector('.spine__name');
