@@ -45,8 +45,15 @@
   root.addEventListener('focusin', function () { hover = true; stop(); });
   root.addEventListener('focusout', function () { hover = false; start(); });
 
+  var hxEl = document.querySelector('.hx');
+  function syncPaused() {
+    if (hxEl) hxEl.classList.toggle('hx--paused', still());
+    still() ? stop() : start();
+  }
+  syncPaused();
+
   if (window.MutationObserver) {
-    new MutationObserver(function () { still() ? stop() : start(); })
+    new MutationObserver(syncPaused)
       .observe(document.documentElement, { attributes: true, attributeFilter: ['data-motion'] });
   }
   if (reduce.addEventListener) reduce.addEventListener('change', function () { still() ? stop() : start(); });
@@ -60,4 +67,42 @@
 
   paint(0);
   start();
+
+  /* ---------- entrance ---------- */
+  var hx = hxEl;
+  if (hx) {
+    window.requestAnimationFrame(function () {
+      window.setTimeout(function () { hx.classList.add('is-in'); }, 60);
+    });
+  }
+
+  /* ---------- pointer + scroll parallax on the shot ---------- */
+  var shot = root;
+  var tx = 0, ty = 0, cx = 0, cy = 0, sy = 0, syT = 0, raf = null;
+
+  function kick() { if (!raf) raf = window.requestAnimationFrame(draw); }
+  function draw() {
+    raf = null;
+    cx += (tx - cx) * 0.09;
+    cy += (ty - cy) * 0.09;
+    sy += (syT - sy) * 0.09;
+    shot.style.transform = 'translate3d(' + cx.toFixed(2) + 'px,' + (cy + sy).toFixed(2) + 'px,0)';
+    if (Math.abs(tx - cx) > 0.05 || Math.abs(ty - cy) > 0.05 || Math.abs(syT - sy) > 0.05) kick();
+  }
+
+  window.addEventListener('pointermove', function (e) {
+    if (still()) return;
+    tx = (e.clientX / window.innerWidth - 0.5) * 12;
+    ty = (e.clientY / window.innerHeight - 0.5) * 10;
+    kick();
+  }, { passive: true });
+
+  window.addEventListener('scroll', function () {
+    if (still()) { syT = 0; return; }
+    var r = shot.getBoundingClientRect();
+    syT = Math.max(-18, Math.min(18, -r.top * 0.045));
+    kick();
+  }, { passive: true });
+
+  document.documentElement.addEventListener('motionchange', function () { sy = syT = 0; kick(); });
 })();
