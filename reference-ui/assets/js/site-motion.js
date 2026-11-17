@@ -130,7 +130,8 @@
       var wrap = sec.querySelector('.wrap') || sec;
       if (wrap.querySelector('.sm-chapter')) return;
       var h = wrap.querySelector('h2');
-      var label = h ? h.textContent.trim().split(/[.,]/)[0].slice(0, 34) : 'Section ' + (i + 1);
+      if (!h) return;                       /* only label real content blocks */
+      var label = h.textContent.trim().split(/[.,]/)[0].slice(0, 34);
       var el = document.createElement('p');
       el.className = 'sm-chapter';
       el.textContent = ('0' + (i + 1)).slice(-2) + ' · ' + label;
